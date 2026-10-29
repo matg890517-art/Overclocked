@@ -23,21 +23,20 @@ function parseBeat(chunk: string): { speaker: string; line: string } {
 function build(visual: string, dialogue: string, cutId: string): Scene[] {
   const caps = visual.split(" / ").map((s) => s.trim()).filter(Boolean);
   const lines = dialogue.split(" / ").map((s) => s.trim()).filter(Boolean);
-  const n = Math.max(caps.length, lines.length, 1);
-  const scenes: Scene[] = [];
-  for (let i = 0; i < n; i++) {
-    const beat = lines[i] ? parseBeat(lines[i]) : { speaker: "", line: "" };
-    scenes.push({
+  const beats = lines.map(parseBeat).filter((b) => b.line);
+  const speaker = beats[0]?.speaker ?? "";
+  const line = beats.map((b) => (b.speaker ? `${b.speaker}: ${b.line}` : b.line)).join(" ");
+  return [
+    {
       cutId,
-      panel: i + 1,
-      panels: n,
-      caption: caps[Math.min(i, Math.max(0, caps.length - 1))] ?? "",
-      speaker: beat.speaker,
-      line: beat.line,
-      art: `assets/cutscenes/${cutId}-${i + 1}.jpg`,
-    });
-  }
-  return scenes;
+      panel: 1,
+      panels: 1,
+      caption: caps[0] ?? "",
+      speaker,
+      line,
+      art: `assets/cutscenes/${cutId}.webp`,
+    },
+  ];
 }
 
 export function cutsceneId(episode: number, stage: number | "win"): string {

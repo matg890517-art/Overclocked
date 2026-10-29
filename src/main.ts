@@ -72,6 +72,48 @@ let codexAlly = "";
 let picks: string[] = [];
 let squadKey = "";
 
+const PORTRAITS = new Set(["steven", "julia", "eli", "dex", "tank", "mira", "nadia", "hale", "crane", "kane"]);
+
+function portraitIdFromName(name: string): string {
+  const n = name.toLowerCase();
+  if (n.includes("steven")) return "steven";
+  if (n.includes("julia") || n.includes("reyes")) return "julia";
+  if (n.includes("eli")) return "eli";
+  if (n.includes("dex")) return "dex";
+  if (n.includes("tank") || n.includes("okafor")) return "tank";
+  if (n.includes("mira")) return "mira";
+  if (n.includes("nadia")) return "nadia";
+  if (n.includes("hale")) return "hale";
+  if (n.includes("crane") || n.includes("silas")) return "crane";
+  if (n.includes("kane")) return "kane";
+  return "";
+}
+
+function portraitHtml(id: string, letter: string, color: string): string {
+  const mark = esc(letter.slice(0, 1) || "?");
+  if (!PORTRAITS.has(id)) {
+    return `<span class="avatar silhouette" style="background:${color}"><span class="sil">${mark}</span></span>`;
+  }
+  const src = `${import.meta.env.BASE_URL}assets/portraits/${id}.webp`;
+  return `<span class="avatar photo" style="background:${color}"><img src="${src}" alt="" /><span class="sil">${mark}</span></span>`;
+}
+
+function bindPortraits(root: ParentNode = document): void {
+  root.querySelectorAll<HTMLImageElement>(".avatar.photo img").forEach((img) => {
+    const fail = () => img.parentElement?.classList.add("broken");
+    if (img.complete && img.naturalWidth === 0) fail();
+    else img.addEventListener("error", fail);
+  });
+}
+
+function bossFace(episode: number): string {
+  if (episode === 7 || episode === 24) return "kane";
+  if (episode === 16 || episode === 20) return "hale";
+  if (episode === 8 || episode === 18 || episode === 23) return "crane";
+  if (episode === 25) return "julia";
+  return "";
+}
+
 function esc(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 }
@@ -166,8 +208,15 @@ function episodes(): void {
                 stage === 8 ? "☠" : stage
               }${rec ? `<small>${"★".repeat(rec.stars)}</small>` : ""}</button>`;
             }).join("");
+            const faces = open
+              ? requiredAllies(ep.n, 1)
+                  .map((id) => portraitHtml(id, ALLY_MAP[id]?.name ?? id, ALLY_MAP[id]?.color ?? "#39f3ff"))
+                  .join("")
+              : "";
+            const villain = open ? bossFace(ep.n) : "";
+            const villainFace = villain ? portraitHtml(villain, villain, "#9ad7ff") : "";
             return `<article class="ep-card ${open ? "" : "locked"}">
-              <div class="ep-top"><h2 class="ep-title">${open ? `EP ${String(ep.n).padStart(2, "0")} · ${esc(ep.title)}` : "CLASSIFIED"}</h2><span class="kicker">${esc(ep.act.split("·")[0] ?? "")}</span></div>
+              <div class="ep-top"><h2 class="ep-title">${open ? `EP ${String(ep.n).padStart(2, "0")} · ${esc(ep.title)}` : "CLASSIFIED"}</h2><span class="faces">${faces}${villainFace}</span></div>
               <p class="ep-loc">${open ? esc(ep.location) : "Clear the previous boss to unlock."}</p>
               ${open ? `<p class="ep-loc">${esc(ep.logline)}</p>` : ""}
               <div class="dots">${dots}</div>
@@ -178,6 +227,7 @@ function episodes(): void {
     </section>`;
   app.querySelector("#back")?.addEventListener("click", () => go({ name: "title" }));
   app.querySelector("#play-next")?.addEventListener("click", () => openContinue());
+  bindPortraits(app);
   app.querySelectorAll(".dot").forEach((btn) => {
     btn.addEventListener("click", () => {
       const ep = Number((btn as HTMLElement).dataset.ep);
@@ -222,7 +272,7 @@ function squad(): void {
             const on = picks.includes(id);
             const locked = req.includes(id);
             return `<button class="ally-opt ${on ? "on" : ""}" data-id="${id}" ${locked ? "disabled" : ""}>
-              <span class="avatar" style="background:${a.color}">${esc(a.name.slice(0, 1))}</span>
+              ${portraitHtml(id, a.name, a.color)}
               <span class="meta"><strong>${esc(a.name)}</strong><span>${esc(a.ability)} · ${esc(a.rule)}</span></span>
             </button>`;
           })
@@ -235,6 +285,7 @@ function squad(): void {
     squadKey = "";
     go({ name: "episodes" });
   });
+  bindPortraits(app);
   app.querySelectorAll(".ally-opt").forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = (btn as HTMLElement).dataset.id!;
@@ -309,6 +360,7 @@ function codex(): void {
       <div class="scroll">${body}</div>
     </section>`;
   app.querySelector("#back")?.addEventListener("click", () => go({ name: "title" }));
+  bindPortraits(app);
   app.querySelectorAll("[data-tab]").forEach((btn) => {
     btn.addEventListener("click", () => {
       codexTab = (btn as HTMLElement).dataset.tab as typeof codexTab;
@@ -344,7 +396,7 @@ function alliesCodex(ep: number): string {
     const open = codexAlly === a.id;
     const ribbon = state === "memorial" ? "MEMORIAL" : state === "betrayed" ? "BETRAYED" : state === "wounded" ? "WOUNDED · ACTIVE" : "ACTIVE";
     return `<button class="cardish ${state}" data-ally="${a.id}">
-      <span class="avatar" style="background:${a.color}">${esc(a.name.slice(0, 1))}</span>
+      ${portraitHtml(a.id, a.name, a.color)}
       <b>${esc(a.name)}</b>
       <div class="ep-loc">${ribbon}</div>
       ${open ? `<p>${esc(a.bio)}</p><p><b>${esc(a.ability)}</b> — ${esc(a.rule)}</p>${a.memorial && state !== "active" && state !== "wounded" ? `<p>${esc(a.memorial)}</p>` : ""}` : ""}
@@ -420,42 +472,43 @@ function cutscene(scenes: Scene[], next: Route): void {
       persist();
     }
     const hue = scene.speaker ? ALLY_MAP[scene.speaker.split(" ")[0].toLowerCase()]?.color : "#39f3ff";
+    const face = portraitIdFromName(scene.speaker);
     root.innerHTML = `
       <div class="scene-frame" id="frame">
-        <div class="scene-fallback" id="fall">
-          <div class="who" style="background:${hue ?? "#39f3ff"}">${esc((scene.speaker || "OC").slice(0, 2).toUpperCase())}</div>
+        <div class="letterbox">
+          <img id="art" alt="" />
         </div>
-        <img class="scene-art" id="art" alt="" />
-        <div class="caption">${esc(scene.caption)}</div>
-        <div class="bubble">${scene.speaker ? `<span class="who">${esc(scene.speaker)}</span>` : ""}<span id="line"></span></div>
+        <div class="scene-fallback" id="fall" hidden>
+          <div class="who-row">${face ? portraitHtml(face, scene.speaker || "?", hue ?? "#39f3ff") : `<div class="who" style="background:${hue ?? "#39f3ff"}">${esc((scene.speaker || "OC").slice(0, 2).toUpperCase())}</div>`}</div>
+          <div class="caption">${esc(scene.caption || "Signal lost. The picture never came through.")}</div>
+          <div class="bubble">${scene.speaker ? `<span class="who">${esc(scene.speaker)}</span>` : ""}<span id="line"></span></div>
+        </div>
         <div class="cut-ui">
           <button class="skip" id="skip">SKIP</button>
-          <button class="skip" id="next">${index + 1}/${scenes.length}</button>
+          <button class="skip" id="next">CONTINUE</button>
         </div>
       </div>`;
     const img = root.querySelector("#art") as HTMLImageElement;
+    const fall = root.querySelector("#fall") as HTMLElement;
+    const line = root.querySelector("#line");
+    if (line) line.textContent = scene.line || "…";
+    bindPortraits(root);
     img.src = `${import.meta.env.BASE_URL}${scene.art}`;
-    img.onload = () => img.classList.add("show");
-    img.onerror = () => img.remove();
-    const line = root.querySelector("#line")!;
-    const full = scene.line || "…";
-    let n = instant ? full.length : 0;
-    line.textContent = full.slice(0, n);
-    window.clearInterval(timer);
-    if (!instant) {
-      timer = window.setInterval(() => {
-        n += 1;
-        line.textContent = full.slice(0, n);
-        if (n >= full.length) window.clearInterval(timer);
-      }, 18);
+    const showArt = () => {
+      fall.hidden = true;
+      img.classList.add("show");
+    };
+    const showFallback = () => {
+      img.remove();
+      fall.hidden = false;
+    };
+    if (img.complete && img.naturalWidth > 0) showArt();
+    else {
+      img.addEventListener("load", showArt);
+      img.addEventListener("error", showFallback);
     }
+    window.clearInterval(timer);
     const advance = () => {
-      if (n < full.length) {
-        n = full.length;
-        line.textContent = full;
-        window.clearInterval(timer);
-        return;
-      }
       index += 1;
       if (index >= scenes.length) {
         sfx("ui");
@@ -601,8 +654,9 @@ function sync(): void {
       const t = g.targets[0];
       const hpPct = t ? Math.max(0, (t.hp / t.maxHp) * 100) : 0;
       const arPct = t && t.armorMax ? Math.max(0, (t.armor / t.armorMax) * 100) : 0;
+      const face = bossFace(g.stage.episode);
       boss.innerHTML = `
-        <div class="bar-label"><span>${esc(g.stage.bossName)}</span><span>${g.mixPhase !== "none" ? g.mixPhase.toUpperCase() : g.stage.bossType.toUpperCase()}</span></div>
+        <div class="bar-label boss-who"><span class="boss-name">${face ? portraitHtml(face, face, "#d7dde6") : ""}<span>${esc(g.stage.bossName)}</span></span><span>${g.mixPhase !== "none" ? g.mixPhase.toUpperCase() : g.stage.bossType.toUpperCase()}</span></div>
         ${t && t.layers > 0 ? `<div class="bar-label"><span>ARMOR ${t.layers}×${t.armorMax}</span><span>${t.armor}</span></div><div class="bar armor"><i style="width:${arPct}%"></i></div>` : ""}
         <div class="bar-label"><span>CORE</span><span>${t ? t.hp : 0}</span></div>
         <div class="bar hp"><i style="width:${hpPct}%"></i></div>
@@ -647,7 +701,7 @@ function sync(): void {
           const a = ALLY_MAP[id];
           const hot = g.stage.tutorial === id && !g.used[id];
           return `<button class="ability ${g.used[id] ? "used" : ""} ${hot ? "hot" : ""}" data-ally="${id}">
-            <span class="avatar" style="background:${a.color}">${esc(a.name.slice(0, 1))}</span>
+            ${portraitHtml(id, a.name, a.color)}
             <b>${esc(a.ability)}</b><small>${g.used[id] ? "SPENT" : "READY"}</small>
           </button>`;
         })
@@ -692,6 +746,7 @@ function sync(): void {
     const lines = g.forecast > 0 ? forecastLines(g) : [];
     forecast.textContent = lines.join("  ·  ");
   }
+  bindPortraits(document.getElementById("shake-root") ?? app);
   const prompt = document.getElementById("prompt");
   if (prompt) {
     const flux = g.stage.bossType === "flux" || g.mixPhase === "flux";
@@ -878,7 +933,9 @@ function drawHint(): void {
     slot.innerHTML = "";
     return;
   }
-  slot.innerHTML = `<div class="hint"><span class="avatar" style="background:${shownHint.color}">${esc(shownHint.speaker.slice(0, 1))}</span><p><b>${esc(shownHint.speaker)}</b> — ${esc(shownHint.text)}</p><button id="dismiss" aria-label="Dismiss hint">✕</button></div>`;
+  const pid = portraitIdFromName(shownHint.speaker);
+  slot.innerHTML = `<div class="hint">${portraitHtml(pid, shownHint.speaker, shownHint.color)}<p><b>${esc(shownHint.speaker)}</b> — ${esc(shownHint.text)}</p><button id="dismiss" aria-label="Dismiss hint">✕</button></div>`;
+  bindPortraits(slot);
   slot.querySelector("#dismiss")?.addEventListener("click", () => {
     shownHint = null;
     hintLockUntil = Date.now() + 8000;

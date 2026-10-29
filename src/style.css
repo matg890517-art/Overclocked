@@ -12,14 +12,22 @@
   --line: rgba(57, 243, 255, 0.35);
   --paper: #f3e2c4;
   --ink: #1b140d;
+  /* JS writes the real window.innerHeight in px. 100% is the fallback. */
+  --app-h: 100%;
   color-scheme: dark;
   font-family: "Rajdhani", "Segoe UI", sans-serif;
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); }
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
 body {
-  min-height: 100dvh;
+  height: var(--app-h);
   background:
     radial-gradient(900px 480px at 50% -10%, rgba(57, 243, 255, 0.14), transparent 55%),
     radial-gradient(700px 420px at 100% 100%, rgba(255, 43, 214, 0.12), transparent 50%),
@@ -27,16 +35,43 @@ body {
 }
 button, input { font-family: inherit; color: inherit; }
 button { cursor: pointer; }
-#app { min-height: 100dvh; }
+#app {
+  height: var(--app-h);
+  max-height: var(--app-h);
+  overflow: hidden;
+}
 
 .screen {
-  width: min(480px, 100%);
+  width: 100%;
+  max-width: 480px;
+  height: var(--app-h);
+  max-height: var(--app-h);
   margin: 0 auto;
-  min-height: 100dvh;
-  padding: calc(14px + env(safe-area-inset-top)) 14px calc(16px + env(safe-area-inset-bottom));
+  padding: 14px 14px 16px;
+  padding-top: calc(14px + env(safe-area-inset-top));
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
-  gap: 12px;
+  overflow: hidden;
+}
+.screen { gap: 12px; }
+.screen > * { -webkit-box-flex: 0; flex-shrink: 0; }
+
+/* Higher specificity than `.screen > *` so the pane can shrink and scroll. */
+.screen > .ep-list,
+.screen > .scroll,
+.screen > .ally-pick,
+.screen > .board-wrap,
+.screen > .scene-frame {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .kicker {
@@ -83,7 +118,9 @@ h1.logo {
 .btn.tiny { padding: 8px 10px; font-size: 13px; letter-spacing: 0.12em; }
 .btn.ghost { background: transparent; }
 
-.ep-list { display: flex; flex-direction: column; gap: 10px; overflow: auto; padding-bottom: 12px; }
+.ep-list { display: flex; flex-direction: column; padding-bottom: 12px; }
+.ep-card + .ep-card { margin-top: 10px; }
+.continue-bar { width: 100%; margin: 0 0 4px; }
 .ep-card {
   border: 1px solid rgba(57, 243, 255, 0.22);
   background: rgba(10, 12, 20, 0.88);
@@ -125,7 +162,8 @@ h1.logo {
   padding: 0;
 }
 
-.ally-pick { display: flex; flex-direction: column; gap: 8px; }
+.ally-pick { display: flex; flex-direction: column; }
+.ally-opt + .ally-opt { margin-top: 8px; }
 .ally-opt {
   display: flex;
   gap: 10px;
@@ -211,7 +249,7 @@ h1.logo {
 .tile-v { color: #041318; background: linear-gradient(180deg, #bffbff, var(--cyan)); border-color: #e8feff; font-size: clamp(11px, 3vw, 15px); }
 .tile-m { color: #2a1600; background: linear-gradient(180deg, #ffe3a8, var(--amber)); border-color: #fff1cc; font-size: clamp(11px, 3vw, 15px); }
 .tile-v.crit { box-shadow: 0 0 10px var(--cyan); }
-#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+#fx { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
 .floater {
   position: absolute; z-index: 3; pointer-events: none;
   font-family: "Orbitron", sans-serif; font-weight: 700;
@@ -273,9 +311,15 @@ h1.logo {
 .prompt { color: var(--amber); font-weight: 700; letter-spacing: 0.08em; font-size: 13px; text-align: center; }
 
 .modal {
-  position: fixed; inset: 0; z-index: 20;
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 20;
   background: rgba(4, 4, 10, 0.72);
-  display: grid; place-items: center; padding: 18px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
 }
 .sheet {
   width: min(420px, 100%);
@@ -288,7 +332,14 @@ h1.logo {
 .sheet h2 { font-family: "Orbitron", sans-serif; font-size: 16px; margin: 0; letter-spacing: 0.08em; }
 .sheet p { margin: 0; color: var(--dim); font-size: 16px; font-weight: 600; }
 
-.result { text-align: center; gap: 8px; justify-content: center; }
+.screen.result {
+  text-align: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .result h2 {
   font-family: "Orbitron", sans-serif;
   font-size: clamp(26px, 8vw, 40px);
@@ -311,17 +362,27 @@ h1.logo {
   background: #05060a;
   position: relative;
   overflow: hidden;
+  gap: 0;
 }
+.screen > .scene-frame { overflow: hidden; }
+.screen.game-screen { overflow-x: hidden; overflow-y: auto; }
+.screen.game-screen > .board-wrap { min-height: 160px; }
 .scene-frame {
   position: relative;
-  flex: 1;
-  min-height: 70dvh;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow: hidden;
   background: #05060a;
 }
 .scene-art, .scene-fallback {
-  position: absolute; inset: -6%;
-  width: 112%; height: 112%;
+  position: absolute;
+  top: -6%;
+  right: -6%;
+  bottom: -6%;
+  left: -6%;
+  width: 112%;
+  height: 112%;
   object-fit: cover;
   animation: pan 16s ease-in-out infinite alternate;
 }
@@ -392,7 +453,7 @@ h1.logo {
 .scroll { overflow: auto; flex: 1; }
 
 #flash {
-  pointer-events: none; position: fixed; inset: 0; z-index: 30; opacity: 0;
+  pointer-events: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 30; opacity: 0;
 }
 #flash.on { animation: flash 280ms ease-out; }
 #flash[data-tier="3"].on { background: rgba(255, 255, 255, 0.55); }

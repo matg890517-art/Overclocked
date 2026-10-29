@@ -37,6 +37,15 @@ const app = document.getElementById("app")!;
 const save = loadSave();
 bindSettings(save.settings);
 
+function fitViewport(): void {
+  const next = window.innerHeight || document.documentElement.clientHeight || 640;
+  document.documentElement.style.setProperty("--app-h", `${Math.round(next)}px`);
+}
+fitViewport();
+window.addEventListener("resize", fitViewport);
+window.addEventListener("orientationchange", fitViewport);
+if (window.visualViewport) window.visualViewport.addEventListener("resize", fitViewport);
+
 type Route =
   | { name: "title" }
   | { name: "episodes" }
@@ -94,9 +103,21 @@ function render(): void {
   if (route.name === "game") return mountGame();
 }
 
-function title(): void {
+function continueLabel(): string {
   const cont = continueTarget(save);
-  const hasSave = Object.keys(save.cleared).length > 0;
+  const ep = allEpisodes()[cont.episode - 1];
+  const fresh = Object.keys(save.cleared).length === 0;
+  const verb = fresh ? "Start" : cont.episode === 25 && cont.stage === 8 && save.cleared[stageKey(25, 8)] ? "Replay" : "Continue";
+  return `${verb} · Stage ${cont.episode}-${cont.stage} · ${ep?.title ?? ""}`;
+}
+
+function openContinue(): void {
+  sfx("ui");
+  const t = continueTarget(save);
+  go({ name: "squad", episode: t.episode, stage: t.stage });
+}
+
+function title(): void {
   app.innerHTML = `
     <section class="screen">
       <p class="kicker">DELTA // HELIX</p>
@@ -104,17 +125,13 @@ function title(): void {
       <p class="tag">Hack the mainframe. Bring her home.</p>
       <p class="footer-note">25 EPISODES · 200 STAGES · 2031</p>
       <div class="menu">
-        ${hasSave ? `<button class="btn primary" id="cont">Continue · ${cont.episode}-${cont.stage}</button>` : ""}
-        <button class="btn primary" id="eps">Episodes</button>
+        <button class="btn primary" id="cont">${esc(continueLabel())}</button>
+        <button class="btn" id="eps">Episodes</button>
         <button class="btn" id="codex">Allies Codex</button>
         <button class="btn" id="settings">Settings</button>
       </div>
     </section>`;
-  app.querySelector("#cont")?.addEventListener("click", () => {
-    sfx("ui");
-    const t = continueTarget(save);
-    go({ name: "squad", episode: t.episode, stage: t.stage });
-  });
+  app.querySelector("#cont")?.addEventListener("click", () => openContinue());
   app.querySelector("#eps")?.addEventListener("click", () => {
     sfx("ui");
     go({ name: "episodes" });
@@ -135,6 +152,7 @@ function episodes(): void {
     <section class="screen">
       <button class="back" id="back">← TITLE</button>
       <p class="kicker">SECTOR MAP</p>
+      <button class="btn primary continue-bar" id="play-next">${esc(continueLabel())}</button>
       <div class="ep-list">
         ${eps
           .map((ep) => {
@@ -159,6 +177,7 @@ function episodes(): void {
       </div>
     </section>`;
   app.querySelector("#back")?.addEventListener("click", () => go({ name: "title" }));
+  app.querySelector("#play-next")?.addEventListener("click", () => openContinue());
   app.querySelectorAll(".dot").forEach((btn) => {
     btn.addEventListener("click", () => {
       const ep = Number((btn as HTMLElement).dataset.ep);
@@ -213,6 +232,7 @@ function squad(): void {
     </section>`;
   app.querySelector("#back")?.addEventListener("click", () => {
     picks = [];
+    squadKey = "";
     go({ name: "episodes" });
   });
   app.querySelectorAll(".ally-opt").forEach((btn) => {
@@ -250,11 +270,13 @@ function settings(): void {
     <section class="screen">
       <button class="back" id="back">← TITLE</button>
       <p class="kicker">RIG CONFIG</p>
-      ${row("sound", "Sound effects")}
-      ${row("hints", "Ally hints")}
-      ${row("haptics", "Haptics")}
-      ${row("shake", "Screen shake")}
-      <p class="ep-loc">Hints pop in when you hesitate, the clock gets thin, or a boss rule is about to bite.</p>
+      <div class="scroll">
+        ${row("sound", "Sound effects")}
+        ${row("hints", "Ally hints")}
+        ${row("haptics", "Haptics")}
+        ${row("shake", "Screen shake")}
+        <p class="ep-loc">Hints pop in when you hesitate, the clock gets thin, or a boss rule is about to bite.</p>
+      </div>
     </section>`;
   app.querySelector("#back")?.addEventListener("click", () => go({ name: "title" }));
   app.querySelectorAll(".switch").forEach((btn) => {

@@ -4,5 +4,10 @@ export default defineConfig({
   base: "./",
   server: { host: "0.0.0.0", port: 5173 },
   preview: { host: "0.0.0.0", port: 4173 },
-  build: { target: "es2022", outDir: "dist", assetsInlineLimit: 0 },
+  build: {
+    target: "chrome90",
+    cssTarget: "chrome90",
+    outDir: "dist",
+    assetsInlineLimit: 0,
+  },
 });

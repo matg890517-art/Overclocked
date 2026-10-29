@@ -13,6 +13,8 @@ npm run dev
 
 Open the URL Vite prints (port 5173). Use a narrow window or a phone. Progress is stored in `localStorage`.
 
+The bundle targets Chrome 90 (`vite build.target` / `cssTarget`, Autoprefixer). Screen height comes from `window.innerHeight` in pixels so episode lists scroll inside the viewport on WebViews that do not understand `dvh` (including Chrome 95).
+
 ## Tests
 
 ```bash

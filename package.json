@@ -1,0 +1,30 @@
+{
+  "name": "overclocked",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OVERCLOCKED — a portrait puzzle game about hacking the HELIX mainframe.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "verify": "tsx scripts/verify-stages.ts",
+    "android:sync": "npm run build && cap sync android",
+    "android:debug": "npm run android:sync && cd android && ./gradlew assembleDebug",
+    "android:apk": "npm run android:debug && node scripts/copy-apk.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@fontsource/orbitron": "^5.3.0",
+    "@fontsource/rajdhani": "^5.3.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "tsx": "^4.20.3",
+    "typescript": "^5.6.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}

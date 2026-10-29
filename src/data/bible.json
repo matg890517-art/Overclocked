@@ -1,0 +1,3000 @@
+{
+  "eps": [
+    {
+      "n": 1,
+      "title": "Cold Insertion",
+      "loc": "Murmansk, Russia — Arctic data bunker",
+      "syn": "스티븐이 HALO 강하로 북극 벙커에 홀로 침투해 납치된 암호학자 줄리아를 구출합니다. 모든 문은 HELIX가 잠그고 있어 처음으로 Overclock Rig로 해킹합니다. 줄리아는 그의 이름을 모르고, Rig를 보고 얼굴이 굳습니다. 탈출 직전 해골 마스크의 사내가 카메라에 비칩니다.",
+      "st": [
+        [
+          "Parachute blooms over a white void — caption: 'Murmansk. 0300 hours.' / Steven lands in a snow drift",
+          "Eli (radio): \"Cold enough for you, boss?\" / Steven: \"Focus.\""
+        ],
+        [
+          "Steven snaps the Rig onto his wrist; neon lines crawl up his veins",
+          "Eli: \"Every door in there is HELIX-locked. Time to play math.\""
+        ],
+        [
+          "Guards changing shift / a 90-second timer on Steven's HUD",
+          "Steven: \"Ninety seconds. Plenty.\""
+        ],
+        [
+          "Steven drags an unconscious guard into a locker / a cell number glows: 7",
+          "Eli: \"Cell seven. That's her.\""
+        ],
+        [
+          "Cell door opens; Julia, bruised, glares from the corner",
+          "Steven: \"Asset is alive. Two minutes to extraction.\" / Julia: \"Who are you?\""
+        ],
+        [
+          "Steven drapes his coat over her shoulders / she hesitates, then stands behind him",
+          "Steven: \"Nobody. That's the point. Stay behind me.\""
+        ],
+        [
+          "Julia's eyes lock on the Rig, recognition / she says nothing",
+          "Julia: \"Where did you get that?\" / Steven: \"Later.\""
+        ],
+        [
+          "Vault door the size of a wall / armor plates glowing / alarms bathe the corridor red / Steven and Julia back to back / the Rig's grid opens over the door",
+          "Steven: \"Last door. Hold on to me.\""
+        ]
+      ],
+      "win": [
+        "Door collapses; snow light floods in / a security monitor: a man in a skull mask, smiling",
+        "Eli: \"Boss, something just logged into the bunker. And it's not us.\""
+      ],
+      "heart": "줄리아는 이름도 모르는 그를 믿지 않다가, 코트를 받은 뒤 처음으로 그의 뒤에 섭니다.",
+      "tension": "라이벌 Silas Crane(해골 마스크) 첫 등장.",
+      "allies": "Eli Brooks (무전)",
+      "boss": "Iron Warden",
+      "type": "Aegis Core",
+      "gimmick": "금고문 = 장갑층. 장갑을 다 벗겨야 코어에 피해가 들어갑니다."
+    },
+    {
+      "n": 2,
+      "title": "White Out",
+      "loc": "Barents Sea coast",
+      "syn": "탈출 헬기가 격추되고 두 사람은 영하 40도 설원에 고립됩니다. 줄리아는 자신이 HELIX 설계팀이었다고 털어놓고, 스티븐은 분노합니다. 얼음 동굴에서 밤을 지새우며 처음으로 신뢰가 생기고, 새벽에 저격수 미라가 합류합니다. 적의 명령은 'Cole을 산 채로'였습니다.",
+      "st": [
+        [
+          "Helicopter hit by a drone / burning wreck on snow",
+          "Pilot: \"We're going down!\""
+        ],
+        [
+          "Steven pulls Julia from the wreck / endless white horizon",
+          "Steven: \"Can you walk?\" / Julia: \"Can you stop asking?\""
+        ],
+        [
+          "Julia's shaking hands over a cracked tablet showing HELIX code",
+          "Julia: \"I helped build it.\" / Steven: \"You built the thing that's hunting us?\""
+        ],
+        [
+          "Argument in the wind, faces close",
+          "Julia: \"I built it to protect people. Someone taught it to hunt.\" / Steven: \"Doesn't help us now, asset.\""
+        ],
+        [
+          "Ice cave, firelight / two silhouettes apart, then closer",
+          "Julia: \"I have a name.\" / Steven: \"Get some sleep.\""
+        ],
+        [
+          "Julia wraps his frostbitten hands in hers",
+          "Julia: \"Don't read into it. I need you alive.\""
+        ],
+        [
+          "Red laser dot on Steven's chest — distant muzzle flash / Mira on the ridge",
+          "Mira: \"Two hostiles down. You're welcome.\""
+        ],
+        [
+          "Drone hive in an ice canyon / pulsing red, regenerating / Mira sighting / Steven on the Rig / Julia reading codes aloud",
+          "Mira: \"It heals faster than I shoot. Hit it hard.\""
+        ]
+      ],
+      "win": [
+        "Drone hive collapses / Mira hands over a dead soldier's orders",
+        "Mira: \"Their orders said 'Cole, alive.' Friends of yours?\" / Julia: \"...So your name is Cole.\""
+      ],
+      "heart": "\"I have a name.\" 말다툼 뒤, 그녀가 그의 언 손을 감싸 줍니다.",
+      "tension": "딜레마: 사냥 무기를 만든 사람을 지켜야 하는가.",
+      "allies": "Eli, Mira Sato (합류)",
+      "boss": "Frost Leech",
+      "type": "Bio-Drain Daemon",
+      "gimmick": "드론 기지가 매 턴 +4 HP 재생."
+    },
+    {
+      "n": 3,
+      "title": "Ghost Protocol",
+      "loc": "Oslo safehouse",
+      "syn": "오슬로 안가에서 헤일 대령이 Prometheus의 존재를 알려 줍니다. 줄리아는 정부 안에도 적이 있다고 경고하지만 스티븐은 멘토를 믿습니다. 안가가 습격당하고 해커 덱스를 구출합니다. 유출 경로는 국방부 채널이었고, 줄리아만 그것을 기억해 둡니다.",
+      "st": [
+        [
+          "Oslo at dusk, a wooden safehouse / Hale on a video screen rolling a coin",
+          "Hale: \"Good work, son.\""
+        ],
+        [
+          "Hale's briefing map lights up: 'PROMETHEUS'",
+          "Hale: \"Prometheus isn't a weapon. It's a government in waiting.\""
+        ],
+        [
+          "Julia confronts Steven in the kitchen",
+          "Julia: \"Your own people are in it.\" / Steven: \"Hale pulled me out of hell twice.\""
+        ],
+        [
+          "Window shatters; a tactical team rappels in",
+          "Steven: \"Down!\""
+        ],
+        [
+          "Server room; Dex behind racks, hoodie, terrified grin",
+          "Dex: \"Please tell me you're the good guys.\""
+        ],
+        [
+          "Underground canal, neon reflections / Steven and Julia catch their breath, shoulders touching",
+          "Julia: \"Steven. Thank you.\" (첫 이름 호명)"
+        ],
+        [
+          "Dex's laptop: source of the leak",
+          "Dex: \"They got this address from a DoD encrypted channel.\" / Julia writes 'DoD channel?' in her notebook"
+        ],
+        [
+          "Comms node splitting like cells / raid team on the canal bridge / Dex typing / Steven covering / Julia watching his back",
+          "Dex: \"It's copying itself! Kill it in one hit or it doubles!\""
+        ]
+      ],
+      "win": [
+        "Raid team retreats / Hale's coin keeps spinning on the frozen screen",
+        "Dex: \"Rule one: never trust the guy who signs your paycheck.\""
+      ],
+      "heart": "줄리아가 처음으로 그의 이름 Steven을 부릅니다. 헤일을 두고 첫 말다툼.",
+      "tension": "복선: 헤일의 동전, 국방부 채널(16화).",
+      "allies": "Mira, Dex Mercer (합류)",
+      "boss": "Twin Cell",
+      "type": "Mitosis Reactor",
+      "gimmick": "비치명타마다 노드가 둘로 분열합니다."
+    },
+    {
+      "n": 4,
+      "title": "The Clock in Prague",
+      "loc": "Prague, old town metro",
+      "syn": "자정에 프라하 지하철 세 곳의 폭탄이 HELIX로 활성화됩니다. 탱크와 합류해 달리는 열차 위에서 해제하고, 줄리아가 원격으로 코드를 읽어 줍니다. 세 번째 폭탄은 미끼였고, 서버 벽에 'Remember Aleppo, Cole.'이 남아 있습니다.",
+      "st": [
+        [
+          "Astronomical clock at midnight, gears glowing",
+          "Hale (radio): \"Three bombs. HELIX holds the trigger.\""
+        ],
+        [
+          "Map with three blinking stations / Steven freezes",
+          "Steven: \"We can't reach all three.\" / Julia: \"Then choose. Fast.\""
+        ],
+        [
+          "Tank kneeling on a train roof, chewing gum",
+          "Tank: \"Relax. Bombs are just puzzles that yell.\""
+        ],
+        [
+          "Bomb casing with a neon countdown",
+          "Steven: \"Red wire?\" / Julia: \"There are no wires. It's math. Trust me.\""
+        ],
+        [
+          "Julia's face framed by soundwaves in his earpiece",
+          "Julia: \"Left node. Now. ...Good.\""
+        ],
+        [
+          "Steven leaps between moving cars",
+          "Julia: \"Come back alive. That's an order.\""
+        ],
+        [
+          "Graffiti on a server wall: skull + 'Remember Aleppo, Cole.' / Steven's hand trembling",
+          "Steven: \"...Aleppo.\""
+        ],
+        [
+          "Old Town bomb under the clock tower / timer: 5 / tourists unaware / Tank sweating / Steven on the Rig",
+          "Tank: \"Five turns. Don't make me run.\""
+        ]
+      ],
+      "win": [
+        "Countdown stops at 1 / a hidden upload port glows in the metro server",
+        "Julia: \"The bombs were a distraction. They were uploading.\""
+      ],
+      "heart": "줄리아의 첫 걱정 \"Come back alive.\" 스티븐이 처음으로 그녀의 판단을 따릅니다.",
+      "tension": "딜레마: 어느 역을 먼저 구할 것인가. 복선: 알레포.",
+      "allies": "Dex, Tank Okafor (합류)",
+      "boss": "Old Town Bomb",
+      "type": "Countdown Prime",
+      "gimmick": "5턴 타이머."
+    },
+    {
+      "n": 5,
+      "title": "Parity",
+      "loc": "Vienna, State Opera ball",
+      "syn": "스티븐과 줄리아가 부부로 위장해 오페라 무도회에 잠입합니다. 이중첩자 나디아가 짝·홀 암호 원리를 넘기는 대가로 망명을 요구하고, 줄리아의 아버지를 언급합니다. 왈츠 속에서 연기가 아닌 순간이 섞입니다. 제압된 저격수의 문신은 스티븐의 옛 부대 휘장입니다.",
+      "st": [
+        [
+          "Chandelier hall, gold and masks",
+          "Dex: \"Your names tonight are Mr. and Mrs. Hartley.\""
+        ],
+        [
+          "Julia in a black gown; Steven stares a beat too long",
+          "Julia: \"Eyes on the target, Mr. Hartley.\""
+        ],
+        [
+          "Nadia slips a card into Steven's pocket",
+          "Nadia: \"I know how HELIX counts. Even, odd. Get me out.\""
+        ],
+        [
+          "Steven and Julia waltz, parity bits flipping with each step",
+          "Steven: \"Dance with me. We're being watched.\" / Julia: \"You lead like a soldier.\""
+        ],
+        [
+          "Close-up: their hands, a slow turn",
+          "Steven: \"You follow like you don't want to.\" / Julia: \"Maybe I do.\""
+        ],
+        [
+          "Nadia leans in to Julia",
+          "Nadia: \"Your father would be proud, Doctor Reyes. Or terrified.\""
+        ],
+        [
+          "Julia's mask slips; Steven holds her quietly / balcony: a rifle under velvet",
+          "Julia: \"Don't. Not tonight.\""
+        ],
+        [
+          "Vault behind the stage / even-odd lock flipping / music swells / Mira on the rafters / Steven at the panel",
+          "Nadia: \"It flips every beat. Odd now. Then even.\""
+        ]
+      ],
+      "win": [
+        "Mira takes down the sniper / his tattoo: Steven's old unit crest",
+        "Steven: \"That's my unit.\""
+      ],
+      "heart": "위장 왈츠의 진심, 아버지 이야기에 무너진 줄리아를 말없이 감싸 줍니다.",
+      "tension": "나디아를 믿을 것인가. 복선: 줄리아의 아버지(13화).",
+      "allies": "Tank, Nadia Volkov (합류)",
+      "boss": "Masquerade Key",
+      "type": "Flux Node",
+      "gimmick": "매 턴 짝/홀 반전. 반대 패리티 타일은 0 피해."
+    },
+    {
+      "n": 6,
+      "title": "Hospital Run",
+      "loc": "Istanbul, Grand Bazaar",
+      "syn": "미라가 총상을 입고 바자르 지하의 비밀 병원으로 향합니다. HELIX가 전력을 빨아먹는 가운데 의무병 로사가 수술하고, 줄리아가 처음으로 Rig를 직접 다룹니다. 로사는 알레포에서 스티븐의 부대를 치료했다고 말하고, 사망자 명단의 Danny Cole이 드러납니다.",
+      "st": [
+        [
+          "Van speeding through a bazaar in the rain / Mira bleeding",
+          "Tank: \"Stay with us, sniper.\""
+        ],
+        [
+          "Rosa snapping on gloves, eyes hard",
+          "Rosa: \"Keep her breathing. I'll keep the lights on.\""
+        ],
+        [
+          "Lights flicker; monitor in neon static",
+          "Rosa: \"Something's eating my power.\""
+        ],
+        [
+          "Julia grabs the Rig; the grid lights up in her color",
+          "Julia: \"Give me the rig. I know how it thinks.\""
+        ],
+        [
+          "Steven guarding a dark corridor / Julia stitches his arm in secret",
+          "Julia: \"Hold still. You're worse than your patients.\""
+        ],
+        [
+          "Rosa recognizes Steven / grey flashback: young Steven carrying a soldier through dust",
+          "Rosa: \"I remember you, Cole. You carried your brother two miles.\""
+        ],
+        [
+          "Julia looks at the casualty list: 'Danny Cole'",
+          "Julia: \"Who was Danny?\" / Steven: \"Someone I didn't save.\""
+        ],
+        [
+          "Parasite in the power grid / glowing red cables / monitor flatlining / Rosa's hands steady / Steven and Julia on one Rig",
+          "Rosa: \"It regrows every second. Burst it.\""
+        ]
+      ],
+      "win": [
+        "Lights return; Mira's hand twitches / Steven alone on a rooftop at dawn",
+        "Julia (to herself): \"Who are you really, Steven Cole?\""
+      ],
+      "heart": "몰래 상처를 꿰매 주고, 그의 과거를 처음 엿봅니다.",
+      "tension": "스티븐의 상처 공개. 복선: 줄리아의 Rig 숙련(13화).",
+      "allies": "Mira, Rosa Medina (합류)",
+      "boss": "Blackout Parasite",
+      "type": "Bio-Drain Daemon",
+      "gimmick": "매 턴 +4 HP 재생."
+    },
+    {
+      "n": 7,
+      "title": "Signal Fire",
+      "loc": "Atlas Mountains, Morocco",
+      "syn": "HELIX의 위성 업링크 요새를 폭파하는 작전입니다. 민간 엔지니어 30명을 먼저 구출해야 합니다. 업링크가 무너지는 순간 Prometheus 수장 빅터 케인이 화면에 나타나 줄리아의 '제네바'를 언급합니다.",
+      "st": [
+        [
+          "Dish array on a red cliff at sunset",
+          "Tank: \"Thirty hostages, one bomb, zero patience. My kind of day.\""
+        ],
+        [
+          "Team moving as one through rocks",
+          "Eli: \"Look at us. Almost a real team.\""
+        ],
+        [
+          "Engineers locked in a hangar",
+          "Steven: \"Civilians first. Then we burn it.\""
+        ],
+        [
+          "Julia calms a frightened engineer in Arabic",
+          "Steven: \"You speak Arabic?\" / Julia: \"I speak lots of things you don't know.\""
+        ],
+        [
+          "Engineers running through smoke, Steven at the gate",
+          "Mira: \"Last one's out!\""
+        ],
+        [
+          "Steven and Julia share water behind a rock",
+          "Steven: \"After this, you tell me everything.\" / Julia: \"After this.\""
+        ],
+        [
+          "Every screen flickers: Kane's face, silver hair, gentle eyes",
+          "Kane: \"Hello, Julia. Did you tell him who you really are?\""
+        ],
+        [
+          "Twin-armored uplink fortress / dishes turning / Kane watching / Julia pale / Steven on the Rig",
+          "Kane: \"Go on, Cole. Break my toys.\""
+        ]
+      ],
+      "win": [
+        "Explosion against a purple sky / Kane's last words echo",
+        "Kane: \"He doesn't know what you did in Geneva, does he?\" / Julia: \"Not now. Please.\""
+      ],
+      "heart": "의심의 씨앗. 그래도 그는 그녀를 마지막 헬기에 태웁니다.",
+      "tension": "빌런 첫 등장. 복선: 제네바(13화).",
+      "allies": "Eli, Tank",
+      "boss": "Sky Bastion",
+      "type": "Aegis Core",
+      "gimmick": "이중 장갑층."
+    },
+    {
+      "n": 8,
+      "title": "Taken",
+      "loc": "Marseille port",
+      "syn": "마르세유에서 줄리아가 제네바를 털어놓으려는 순간 습격이 시작됩니다. 해골 마스크의 사내는 알레포에서 죽은 줄 알았던 전우 사일러스 크레인이었습니다. 부두 추격전 끝에 줄리아가 배에 끌려가며 'The key is in the song'을 외칩니다. Act I 종료.",
+      "st": [
+        [
+          "Harbor safehouse at night, Julia at the window",
+          "Julia: \"About Geneva... I need you to hear it from me.\""
+        ],
+        [
+          "Glass explodes; the skull mask in the doorway",
+          "Steven: \"Get down!\""
+        ],
+        [
+          "Container maze, neon lights / chase begins",
+          "Dex: \"They're taking her to the docks!\""
+        ],
+        [
+          "Crane pulls off the mask — scarred face",
+          "Crane: \"Miss me, Cole? You left me in that rubble.\" / Steven: \"I thought you were dead.\""
+        ],
+        [
+          "Fists and sparks on a crane arm",
+          "Crane: \"You hoped.\""
+        ],
+        [
+          "Julia dragged toward a ship, reaching back",
+          "Julia: \"Steven!\""
+        ],
+        [
+          "Crane escapes up a ladder / the ship's engines roar",
+          "Crane: \"Now you'll know what losing feels like.\""
+        ],
+        [
+          "Crane control nodes splitting / containers swinging / Steven at the pier / Julia on deck / Mira firing / ship pulling away",
+          "Mira: \"The cranes are multiplying! Clear a path!\""
+        ]
+      ],
+      "win": [
+        "Julia screaming from the deck / ship lights fading — caption: 'END OF ACT I'",
+        "Julia: \"Steven — the key is in the song!\" / Steven: \"I'll find you. Whatever it takes.\""
+      ],
+      "heart": "고백이 끊기고, 스티븐은 명령보다 그녀를 택하기로 결심합니다.",
+      "tension": "라이벌 정체 공개. 알레포의 선택.",
+      "allies": "Mira, Dex",
+      "boss": "Harbor Hydra",
+      "type": "Mitosis Reactor",
+      "gimmick": "크레인 노드가 분열하며 보드를 막습니다."
+    },
+    {
+      "n": 9,
+      "title": "Off the Books",
+      "loc": "Lisbon",
+      "syn": "헤일은 줄리아를 '손실 자산'으로 처리하고, 스티븐은 부대 패치를 떼고 비공식 작전을 시작합니다. 덱스가 뮤직박스의 자장가가 HELIX 접속 키의 절반임을 밝혀냅니다. 망설이던 탱크도 결국 합류합니다.",
+      "st": [
+        [
+          "Hale on screen, tired",
+          "Hale: \"She's gone, son. Let it go.\""
+        ],
+        [
+          "Steven tears off his unit patch",
+          "Steven: \"Orders don't get a vote anymore.\""
+        ],
+        [
+          "Rooftop table under string lights, team divided",
+          "Tank: \"This is desertion, Cole.\" / Rosa: \"This is loyalty.\""
+        ],
+        [
+          "Music box from Julia's bag, a tiny dancer turning",
+          "Steven: \"She hummed this. In the cave.\""
+        ],
+        [
+          "Dex freezing mid-typing; notes turning into code",
+          "Dex: \"It's not a song. It's half a password.\""
+        ],
+        [
+          "A note inside the music box lid",
+          "Julia (note): \"Don't stop being stubborn.\""
+        ],
+        [
+          "Tank steps out of the shadows, duffel on shoulder",
+          "Tank: \"I'm not following orders. I'm following you.\""
+        ],
+        [
+          "Cathedral bell tower / bells swing in rhythm / code flipping parity on each toll / Dex humming / Steven on the Rig",
+          "Dex: \"Match the melody. Odd on the high note.\""
+        ]
+      ],
+      "win": [
+        "Tram descending at dawn / a burner phone rings once",
+        "Unknown voice: \"...Steven?\""
+      ],
+      "heart": "뮤직박스를 늘 품고 다니고, 그녀의 메모를 발견합니다.",
+      "tension": "명령 대 의리.",
+      "allies": "Dex, Nadia",
+      "boss": "Lullaby Cipher",
+      "type": "Flux Node",
+      "gimmick": "자장가 박자에 따라 패리티가 바뀝니다."
+    },
+    {
+      "n": 10,
+      "title": "The Informant",
+      "loc": "Hong Kong",
+      "syn": "감금된 줄리아가 HELIX 로그를 조작해 비밀 채널을 엽니다. 이제 그녀는 내부 정보원입니다. 스티븐은 비 오는 야시장 감시망 한복판에서 그녀의 신호를 받고, 케인의 '인류 안정화' 계획을 입수합니다.",
+      "st": [
+        [
+          "Neon market in the rain / Steven under a signboard",
+          "Julia (phone): \"I'm inside. Don't come yet. Listen.\""
+        ],
+        [
+          "Split panel: Julia whispering in a cell / Steven listening",
+          "Steven: \"Are you hurt?\" / Julia: \"Ask me something I can answer.\""
+        ],
+        [
+          "Camera drones swarming overhead",
+          "Eli: \"Every lens in this market is HELIX's.\""
+        ],
+        [
+          "Crane's men moving through the crowd",
+          "Mira: \"Skull tattoos. Three o'clock.\""
+        ],
+        [
+          "Kane's plan document on Steven's phone",
+          "Julia: \"He wants HELIX to govern. Elections, borders, everything.\""
+        ],
+        [
+          "Steven touches the screen as if touching her",
+          "Julia: \"I hate that your voice helps.\""
+        ],
+        [
+          "Kane's guard glancing at Julia's door",
+          "Julia: \"If they find this channel, don't come for me.\" / Steven: \"You know I will.\""
+        ],
+        [
+          "Surveillance net splitting like cells / screens everywhere / Steven cornered / Mira on a rooftop / Eli jamming",
+          "Eli: \"They're cloning faster than I can jam!\""
+        ]
+      ],
+      "win": [
+        "Market goes dark / Steven looks up at a skyline of screens",
+        "Steven: \"Hold on, Julia.\""
+      ],
+      "heart": "목소리로만 이어진 관계와 오지 말라는 그녀의 부탁.",
+      "tension": "정보원의 위험, 크레인의 추격.",
+      "allies": "Eli, Mira",
+      "boss": "Market Swarm",
+      "type": "Mitosis Reactor",
+      "gimmick": "감시망이 분열하며 증식합니다."
+    },
+    {
+      "n": 11,
+      "title": "Glass Tower",
+      "loc": "Singapore, Prometheus finance HQ",
+      "syn": "줄리아의 정보로 Prometheus 자금이 모인 싱가포르 타워를 텁니다. 무고한 연금까지 사라질 수 있어 덱스가 망설입니다. 장부에 헤일의 위장 회사 Harrow Holdings가 보이지만 넘깁니다. 크레인은 옥상에서 공격하지 않고 사라집니다.",
+      "st": [
+        [
+          "Marina Bay skyline at night",
+          "Julia (radio): \"Floor sixty. Everything Kane owns flows through it.\""
+        ],
+        [
+          "Steven on a glass wall, city below",
+          "Tank: \"Sixty floors. No net.\" / Steven: \"There's never a net.\""
+        ],
+        [
+          "Dex frozen at the console",
+          "Dex: \"We burn this, we burn innocent people's savings too.\""
+        ],
+        [
+          "Julia guides Dex to split the accounts",
+          "Julia: \"Cut only Kane's. I'll show you where.\""
+        ],
+        [
+          "Ledger line highlighted: 'Harrow Holdings'",
+          "Dex: \"Probably a shell. Moving on.\""
+        ],
+        [
+          "Steven pauses as he hears Julia laugh",
+          "Julia: \"You did it.\" / Steven: \"We did.\""
+        ],
+        [
+          "Crane on the helipad, coat whipping",
+          "Crane: \"Not yet, Cole. I want you to lose everything first.\""
+        ],
+        [
+          "Triple-encrypted vault behind glass / blue light / alarms / Tank's charge / Steven on the Rig",
+          "Julia: \"Three layers. Peel them one by one.\""
+        ]
+      ],
+      "win": [
+        "Window blows outward; money ledger burns on a screen",
+        "Julia: \"Kane will feel that. So will I.\""
+      ],
+      "heart": "그녀의 첫 웃음소리에 스티븐이 멈춰 섭니다.",
+      "tension": "딜레마: 무고한 연금. 복선: Harrow Holdings(16화).",
+      "allies": "Tank, Dex",
+      "boss": "Ledger Fortress",
+      "type": "Aegis Core",
+      "gimmick": "3중 장갑."
+    },
+    {
+      "n": 12,
+      "title": "Fever",
+      "loc": "Jakarta water plant",
+      "syn": "케인이 보복으로 자카르타 정수장을 오염시킵니다. 해독제 화학식은 줄리아만 빼낼 수 있고, 그 대가로 채널이 노출되어 그녀의 비명이 무전으로 들립니다.",
+      "st": [
+        [
+          "People collapsing in heat haze",
+          "Rosa: \"Every second, another thousand people drink.\""
+        ],
+        [
+          "Rosa in a makeshift lab, green beakers",
+          "Rosa: \"I need the toxin formula.\""
+        ],
+        [
+          "Steven on the phone, desperate",
+          "Julia: \"Formula's coming. They'll know it was me.\""
+        ],
+        [
+          "Steven fighting chest-deep in a flooded pump room",
+          "Steven: \"Julia, stop—\" / Julia: \"Save them. Then save me.\""
+        ],
+        [
+          "Black panel with only a radio waveform and a scream",
+          "—"
+        ],
+        [
+          "Steven's fist against a wall",
+          "Eli: \"Boss... we still have a city to save.\""
+        ],
+        [
+          "Clean water flows, children laughing",
+          "Rosa: \"She chose a city over herself. Remember that.\""
+        ],
+        [
+          "Toxin bloom in the main tank / glowing green tendrils / Rosa holding the antidote / Steven on the Rig",
+          "Rosa: \"It regrows! Hit it all at once!\""
+        ]
+      ],
+      "win": [
+        "Silent phone, no signal from Julia",
+        "Steven: \"Julia? ...Julia.\""
+      ],
+      "heart": "그녀가 자신을 희생해 도시를 구합니다. 니어 로스.",
+      "tension": "선택의 대가.",
+      "allies": "Rosa, Eli",
+      "boss": "Toxin Bloom",
+      "type": "Bio-Drain Daemon",
+      "gimmick": "매 턴 +4 HP 재생."
+    },
+    {
+      "n": 13,
+      "title": "Origin Code",
+      "loc": "Kyoto, abandoned research temple",
+      "syn": "미드포인트입니다. 교토 산속 사원에서 HELIX 원본 서버를 찾고 줄리아의 옛 기록을 봅니다. 그녀는 아버지·케인과 HELIX를 만들었고, 케인의 무기화를 막으려 제네바 연구소를 폭파해 아버지를 잃었습니다. 킬 스위치는 그녀의 뇌파와 어머니의 자장가에 묶여 있고, Rig도 그녀의 작품입니다.",
+      "st": [
+        [
+          "Mossy temple with server racks between statues",
+          "Dex: \"Her last coordinates. This is HELIX's birthplace.\""
+        ],
+        [
+          "Holographic young Julia with her father and a younger Kane",
+          "Julia (recording): \"Day one. We're going to save the world.\""
+        ],
+        [
+          "Steven's Rig HUD: 'DESIGNER: J. REYES'",
+          "Dex: \"Steven... her signature is all over your rig.\""
+        ],
+        [
+          "Flashback: Geneva lab exploding, Julia on the snow",
+          "Julia (recording): \"Kane made it a weapon. I had to burn it. My father was inside.\""
+        ],
+        [
+          "Nadia lowers her eyes",
+          "Nadia: \"I knew Adrian Reyes. He would have forgiven her.\""
+        ],
+        [
+          "Julia's last recording, tears",
+          "Julia: \"The kill switch isn't in the machine. It's in me.\""
+        ],
+        [
+          "Steven kneeling in falling cherry petals, music box open",
+          "Steven: \"She's not the mission anymore. She's the reason.\""
+        ],
+        [
+          "Records start deleting / timer 5 / screens dying one by one / Dex panicking / Steven on the Rig",
+          "Dex: \"Five turns before it wipes everything!\""
+        ]
+      ],
+      "win": [
+        "Last screen saved: a map to Kane's prison",
+        "Steven: \"I know where she is.\""
+      ],
+      "heart": "그녀를 지키는 것이 그의 이유가 됩니다. 처음으로 그녀 때문에 웁니다.",
+      "tension": "회수: 1·6화 Rig, 7화 제네바, 9화 자장가.",
+      "allies": "Dex, Nadia",
+      "boss": "Shrine Sentinel",
+      "type": "Countdown Prime",
+      "gimmick": "5턴 후 기록 삭제."
+    },
+    {
+      "n": 14,
+      "title": "Two Faces",
+      "loc": "Dubai desert highway",
+      "syn": "나디아의 연락책이 HELIX 코어 위치를 판다는 정보는 함정이었습니다. 팀 안에서 나디아 의심이 커지지만, 덱스가 추적한 유출 경로는 헤일의 인가 코드였습니다. 크레인이 알레포 브리핑의 헤일 서명 사진을 보냅니다.",
+      "st": [
+        [
+          "Dubai towers in heat haze",
+          "Nadia: \"My contact has HELIX's core location.\""
+        ],
+        [
+          "Ambush in an underground garage",
+          "Mira: \"Nadia has sold everyone she's ever met.\" / Nadia: \"Not you. Not yet.\""
+        ],
+        [
+          "Supercars on a desert highway",
+          "Tank: \"Hold on to something!\""
+        ],
+        [
+          "Sandstorm swallowing the convoy",
+          "Steven: \"Someone in our circle is talking.\""
+        ],
+        [
+          "Dex's screen: 'ACCESS: HALE, M.'",
+          "Dex: \"The leak used Hale's clearance.\" / Steven: \"Spoofed. Has to be.\""
+        ],
+        [
+          "Julia's voice crackling back",
+          "Julia: \"Trust no one. Except me.\" / Steven smiles for the first time in days"
+        ],
+        [
+          "Photo on Steven's phone: Aleppo brief, Hale's signature",
+          "Crane (text): \"Ask your colonel who planned Aleppo.\""
+        ],
+        [
+          "Mirage grid in the dunes / parity flipping / sand everywhere / Nadia guiding / Steven on the Rig",
+          "Nadia: \"It lies every turn. Read the opposite.\""
+        ]
+      ],
+      "win": [
+        "Steven in the car, jaw tight, dunes endless",
+        "Steven: \"Hale wants to meet in Berlin.\""
+      ],
+      "heart": "그녀의 \"Except me.\"에 웃고, 내린 결정을 그녀에게 털어놓습니다.",
+      "tension": "배신의 전조, 나디아 의심.",
+      "allies": "Nadia, Tank",
+      "boss": "Mirage Grid",
+      "type": "Flux Node",
+      "gimmick": "패리티가 매 턴 반전됩니다."
+    },
+    {
+      "n": 15,
+      "title": "Rendezvous",
+      "loc": "Venice",
+      "syn": "줄리아가 이송 중 탈출해 베네치아에서 스티븐과 하룻밤 재회합니다. 두 사람은 제네바와 Danny 이야기를 서로 고백합니다. 그러나 그녀 몸의 추적 임플란트 때문에 그녀는 스스로 돌아가기를 선택합니다.",
+      "st": [
+        [
+          "Gondola under a bridge, lanterns on water",
+          "Julia: \"You look terrible.\" / Steven: \"You look alive.\""
+        ],
+        [
+          "Stone steps, rain stopping",
+          "Julia: \"I killed my father to stop what we built.\""
+        ],
+        [
+          "Steven looking at his hands",
+          "Steven: \"I chose my brother and left a friend to die. We both carry someone.\""
+        ],
+        [
+          "Their foreheads touching — no kiss",
+          "Julia: \"Not yet. If I kiss you, I won't leave.\""
+        ],
+        [
+          "A red light pulsing under her skin",
+          "Rosa: \"Tracker implant. They'll be here in minutes.\""
+        ],
+        [
+          "Steven running across canal locks as gates slam",
+          "Mira: \"Hostiles on both banks!\""
+        ],
+        [
+          "Julia walking back into fog",
+          "Julia: \"If I stay, they find you. If I go, you find me.\" / Steven: \"Then I'll find you.\""
+        ],
+        [
+          "Canal lock gate / armored floodgate / water rising / Steven alone / music box on the steps",
+          "Rosa: \"Break the lock or the whole district floods.\""
+        ]
+      ],
+      "win": [
+        "Phone lights up: Hale calling",
+        "Hale: \"Come to Berlin, son. It's time you knew everything.\""
+      ],
+      "heart": "서로의 상처를 고백하고, 고백 직전에 멈춘 이별.",
+      "tension": "사랑하는 사람을 보낼 것인가.",
+      "allies": "Mira, Rosa",
+      "boss": "Canal Lock",
+      "type": "Aegis Core",
+      "gimmick": "수문 장갑 + 최소 피해 조건."
+    },
+    {
+      "n": 16,
+      "title": "The Colonel",
+      "loc": "Berlin, Tempelhof hangar",
+      "syn": "배신입니다. 헤일은 자신이 Prometheus 공동 창립자이고, Harrow Holdings로 자금을 댔으며, 알레포 작전을 설계했다고 인정합니다. 엘리가 스티븐을 감싸다 쓰러지고, 헤일은 줄리아의 위치를 케인에게 넘깁니다.",
+      "st": [
+        [
+          "Empty hangar, a single light, a coin spinning",
+          "Hale: \"Glad you came alone. Mostly.\""
+        ],
+        [
+          "Hale smiling",
+          "Hale: \"Nothing personal, son. The future needed a sponsor.\""
+        ],
+        [
+          "Red flashback: Hale signing the Aleppo brief",
+          "Steven: \"Aleppo. Danny. That was you.\""
+        ],
+        [
+          "Hale shrugs",
+          "Hale: \"Sacrifices make soldiers. I made you.\""
+        ],
+        [
+          "Kane's soldiers surround the team",
+          "Dex: \"Harrow Holdings. It was him the whole time.\""
+        ],
+        [
+          "Eli diving in front of Steven",
+          "Steven: \"Eli!\""
+        ],
+        [
+          "Eli on the floor, radio crackling",
+          "Eli: \"Boss... tell Julia my jokes were funny.\""
+        ],
+        [
+          "Hale's command net splitting / soldiers everywhere / Steven over Eli / Dex hacking / the coin on the floor",
+          "Hale: \"Every man I trained, I can replace.\""
+        ]
+      ],
+      "win": [
+        "The coin lands in Eli's open hand / Steven taken in chains",
+        "Hale (on phone): \"Kane, she's in Carpathia. He's yours.\""
+      ],
+      "heart": "배신으로 그녀의 위치가 노출됩니다. 그의 마지막 생각은 그녀입니다.",
+      "tension": "회수: 동전, 국방부 채널, Harrow, 알레포. 엘리 희생.",
+      "allies": "Eli, Dex (헤일 영구 이탈)",
+      "boss": "Hale's Gambit",
+      "type": "Mitosis Reactor",
+      "gimmick": "지휘망이 분열해 포위합니다."
+    },
+    {
+      "n": 17,
+      "title": "Ashes",
+      "loc": "Black site, Carpathians",
+      "syn": "다크 모먼트입니다. 스티븐은 크레인에게 고문당하고, 케인은 줄리아를 HELIX 의자에 연결하는 장면을 보여 줍니다. 크레인은 헤일이 알레포를 설계했다는 진실에 흔들립니다. 줄리아의 마지막 말: 'Sing it for me.' Act II 종료.",
+      "st": [
+        [
+          "Steven chained, blood on concrete",
+          "Crane: \"Where's your team now, Cole?\""
+        ],
+        [
+          "Eli's dog tags on the cell floor",
+          "Steven: \"...Eli.\""
+        ],
+        [
+          "Screen: Julia wired into a glowing chair",
+          "Kane: \"Watch, Steven. This is what you couldn't save.\""
+        ],
+        [
+          "Julia screaming in neon light",
+          "Julia: \"Don't watch!\""
+        ],
+        [
+          "Steven tells Crane the truth",
+          "Steven: \"Hale planned Aleppo. We were both his coins, Silas.\""
+        ],
+        [
+          "Crane alone outside the cell, mask in his hands",
+          "Crane: \"He sent us to die?\""
+        ],
+        [
+          "Steven humming the lullaby through split lips",
+          "Julia (fading): \"Sing it for me.\""
+        ],
+        [
+          "Interrogator node / no allies / regen pulses / Steven alone in the dark / one flickering Rig",
+          "Kane: \"No friends this time, Cole.\""
+        ]
+      ],
+      "win": [
+        "Total black panel — caption: 'END OF ACT II'",
+        "Steven (whisper): \"I'm still here.\""
+      ],
+      "heart": "가장 어두운 순간. 감옥에서 자장가로 버팁니다.",
+      "tension": "회수: 알레포. 크레인의 흔들림.",
+      "allies": "없음 (동료 능력 봉인)",
+      "boss": "Interrogator",
+      "type": "Bio-Drain Daemon",
+      "gimmick": "동료 없이 +6 HP/턴 재생."
+    },
+    {
+      "n": 18,
+      "title": "Breakout",
+      "loc": "Black site, Carpathians",
+      "syn": "미라와 탱크가 외벽을 폭파해 스티븐을 구출합니다. 탈출로를 막은 크레인은 마지막 순간 총을 내리고 장갑문을 열어 줍니다. 줄리아는 이미 HELIX와 반쯤 융합된 채 북해로 옮겨졌습니다.",
+      "st": [
+        [
+          "Wall explodes inward, snow pours in",
+          "Mira: \"Get up, soldier. We're not done.\""
+        ],
+        [
+          "Mira's hand through the dust",
+          "Tank: \"Rosa's waiting with the truck.\""
+        ],
+        [
+          "Corridors full of alarms",
+          "Steven: \"Where's Julia?\" / Mira: \"Gone. North.\""
+        ],
+        [
+          "Crane blocking the corridor, gun raised",
+          "Crane: \"Stop right there, Cole.\""
+        ],
+        [
+          "Two men aiming, neither firing",
+          "Steven: \"Silas... I'm sorry about Aleppo.\" / Crane: \"Don't.\""
+        ],
+        [
+          "Crane lowers his gun, mask dropping",
+          "Crane: \"I'll find Hale. You find her.\""
+        ],
+        [
+          "Rosa in the truck",
+          "Rosa: \"You love her.\" / Steven doesn't deny it"
+        ],
+        [
+          "Cell Block Omega door / heavy armor / guards closing in / Crane at the panel / Steven on the Rig",
+          "Crane: \"Strip the armor. I'll hold them.\""
+        ]
+      ],
+      "win": [
+        "Helicopter lifting at dawn, Eli's tags in Steven's fist",
+        "Steven: \"I'm coming for you.\""
+      ],
+      "heart": "그녀의 사진에 맹세하고, 사랑을 부정하지 않습니다.",
+      "tension": "라이벌의 전향.",
+      "allies": "Mira, Tank",
+      "boss": "Cell Block Omega",
+      "type": "Aegis Core",
+      "gimmick": "중장갑."
+    },
+    {
+      "n": 19,
+      "title": "Ghost in the Wire",
+      "loc": "Reykjavik geothermal station",
+      "syn": "지열 발전소의 HELIX 전력 노드를 공격하던 중 Rig에 두 번째 커서가 나타납니다. HELIX 안의 줄리아가 말을 걸고, 이때부터 그녀는 퍼즐 동료로 능력 Root Access를 씁니다.",
+      "st": [
+        [
+          "Steam over black lava fields",
+          "Dex: \"This plant feeds half of HELIX.\""
+        ],
+        [
+          "Steven's HUD flickers; a second cursor appears",
+          "Steven: \"Dex, is that you?\" / Dex: \"Not me.\""
+        ],
+        [
+          "Julia's silhouette made of neon code",
+          "Julia: \"I can see your board, Steven. Let me help.\""
+        ],
+        [
+          "Steven stunned",
+          "Steven: \"You're alive.\" / Julia: \"Mostly. Don't make me cry in binary.\""
+        ],
+        [
+          "Their hands overlapping on the grid",
+          "Julia: \"I'll take the left side. You take the right.\""
+        ],
+        [
+          "Kane opens his eyes in his chamber",
+          "Julia: \"Every time I help you, Kane feels it.\""
+        ],
+        [
+          "Steven smiles for the first time since Berlin",
+          "Steven: \"Then let's make him feel it.\""
+        ],
+        [
+          "Steam hydra of valve nodes / splitting / geysers erupting / two cursors / Dex cheering",
+          "Julia: \"It splits on weak hits. Together, now!\""
+        ]
+      ],
+      "win": [
+        "Plant goes dark; HELIX power drops 40%",
+        "Julia: \"Next: Washington. Hale is going public.\""
+      ],
+      "heart": "디지털 재회. 그녀의 농담으로 웃음을 되찾습니다.",
+      "tension": "도움의 대가.",
+      "allies": "Julia (능력 해금), Dex",
+      "boss": "Steam Hydra",
+      "type": "Mitosis Reactor",
+      "gimmick": "분열 노드."
+    },
+    {
+      "n": 20,
+      "title": "Hale",
+      "loc": "Washington, D.C.",
+      "syn": "헤일이 상원 청문회에서 HELIX를 합법화하려 합니다. 국회의사당 지하에서 증거를 업로드하고, 스티븐은 헤일을 죽일 기회가 있지만 체포를 택합니다. 크레인이 헤일에게 Danny의 군번줄을 건넵니다.",
+      "st": [
+        [
+          "Capitol dome under storm clouds",
+          "Hale (TV): \"HELIX is the future of national stability.\""
+        ],
+        [
+          "Crane meets Steven in a parking garage",
+          "Crane: \"I've got his files. I can't get inside.\""
+        ],
+        [
+          "Tunnels under the Capitol",
+          "Nadia: \"Upload terminal is under the hearing room.\""
+        ],
+        [
+          "Hearing room screens switching to leaked files",
+          "Senator: \"Colonel, what is Harrow Holdings?\""
+        ],
+        [
+          "Steven and Hale in a tunnel, guns drawn",
+          "Hale: \"You can't arrest the future, son.\" / Steven: \"You trained me to finish the job.\""
+        ],
+        [
+          "Crane places Danny's dog tags in Hale's palm",
+          "Crane: \"This belonged to a boy you sent to die.\""
+        ],
+        [
+          "Hale cuffed, eyes empty",
+          "Hale: \"Kane doesn't need me. He needs her.\""
+        ],
+        [
+          "Vote countdown / timer 5 / senators raising hands / Steven at the terminal / Julia's cursor beside his",
+          "Julia: \"Five turns before the vote. Make it count.\""
+        ]
+      ],
+      "win": [
+        "Arlington; Steven at Danny's grave",
+        "Julia: \"You could have killed him.\" / Steven: \"You'd have hated me.\""
+      ],
+      "heart": "그녀가 그의 선택을 자랑스러워하고, 무덤 앞에서 위로합니다.",
+      "tension": "복수 대 정의. 헤일 아크 회수.",
+      "allies": "Nadia, Dex",
+      "boss": "Colonel Hale",
+      "type": "Countdown Prime",
+      "gimmick": "투표 마감까지 5턴."
+    },
+    {
+      "n": 21,
+      "title": "Dead Hand",
+      "loc": "Siberian missile silo",
+      "syn": "케인이 HELIX로 옛 소련 핵 사일로를 깨웁니다. 줄리아가 내부에서 발사를 늦출 때마다 그녀의 기억이 깎여 나갑니다. 탱크가 수동 기폭을 맡아 다리를 잃습니다.",
+      "st": [
+        [
+          "Silo doors opening in snow",
+          "Dex: \"Kane just woke up a Soviet nuke.\""
+        ],
+        [
+          "Tank planting charges on a rail",
+          "Tank: \"Someone has to hold the button.\""
+        ],
+        [
+          "Julia's code-form straining in red light",
+          "Steven: \"Launch in five. Julia, buy me one.\" / Julia: \"I can buy two. It'll cost me.\""
+        ],
+        [
+          "Julia flickering",
+          "Julia: \"I just forgot my mother's face.\""
+        ],
+        [
+          "Steven pauses mid-fight",
+          "Steven: \"Stop. Not like this.\" / Julia: \"Like this. Go.\""
+        ],
+        [
+          "Missile freezing mid-rise",
+          "Tank: \"Get clear. Now!\""
+        ],
+        [
+          "Tank in the snow, smiling through pain",
+          "Tank: \"Still got both arms. Good enough.\""
+        ],
+        [
+          "Launch authority node / timer + armor / missile above / Tank on the detonator / Julia fading",
+          "Julia: \"Steven... I'm forgetting the song.\""
+        ]
+      ],
+      "win": [
+        "Steven humming the song into his Rig",
+        "Steven: \"Then I'll remember it for you.\""
+      ],
+      "heart": "그녀가 고통을 숨기지 못하고, 그가 자장가를 불러 줍니다.",
+      "tension": "탱크의 희생(부상).",
+      "allies": "Julia, Tank",
+      "boss": "Launch Authority",
+      "type": "Countdown Prime",
+      "gimmick": "5턴 + 장갑 1겹 복합 보스."
+    },
+    {
+      "n": 22,
+      "title": "Nadia's Choice",
+      "loc": "St. Petersburg",
+      "syn": "나디아가 옛 조직 본부에 혼자 들어갑니다. 미라는 그녀가 다시 배신할 것이라 믿지만, 나디아는 HELIX 본체 좌표를 넘기고 숨집니다. 좌표는 북해의 석유 플랫폼입니다.",
+      "st": [
+        [
+          "Winter Palace at night",
+          "Nadia: \"I go in alone. They still think I'm theirs.\""
+        ],
+        [
+          "Mira loading her rifle",
+          "Mira: \"She'll sell us again.\""
+        ],
+        [
+          "Nadia walking in, coat flaring",
+          "Nadia: \"Not this time, little sniper.\""
+        ],
+        [
+          "Gunfire in the corridors",
+          "Dex: \"Her signal's moving. She's got the drive!\""
+        ],
+        [
+          "Nadia wounded, handing over the drive",
+          "Nadia: \"Tell Julia the waltz was real for you too.\""
+        ],
+        [
+          "Steven holding her as snow falls",
+          "Steven: \"It was.\""
+        ],
+        [
+          "Mira kneeling, rifle on the ground",
+          "Mira: \"I never said sorry.\""
+        ],
+        [
+          "Winter lattice / fast parity flips / two branch targets / frozen halls / Julia's cursor shaking",
+          "Julia: \"Two cores, flipping fast. I'll call them.\""
+        ]
+      ],
+      "win": [
+        "Coordinates glowing: an oil rig in the North Sea / Julia crying quietly",
+        "Julia: \"I heard what you said.\""
+      ],
+      "heart": "\"It was.\" 그가 사랑을 인정하고, 그녀가 조용히 웁니다.",
+      "tension": "나디아 아크 회수.",
+      "allies": "Nadia, Mira",
+      "boss": "Winter Lattice",
+      "type": "Flux Node",
+      "gimmick": "빠른 패리티 교대 + 분기 타겟 2개."
+    },
+    {
+      "n": 23,
+      "title": "Storm Front",
+      "loc": "North Sea, HELIX core rig",
+      "syn": "폭풍 속 북해 플랫폼에 상륙하고 크레인도 합류합니다. 모든 동료가 각자 자리에서 싸우고, 크레인은 엘리베이터 문을 몸으로 막아 스티븐을 올려 보낸 뒤 사라집니다.",
+      "st": [
+        [
+          "Boats slamming through giant waves",
+          "Steven: \"Everyone has a job tonight. Mine is her.\""
+        ],
+        [
+          "Crane on the deck, mask gone",
+          "Crane: \"Thought you could use one more.\""
+        ],
+        [
+          "Mira on a crane, rifle steady in lightning",
+          "Mira: \"Overwatch set.\""
+        ],
+        [
+          "Dex in the comms room",
+          "Dex: \"Comms are yours. Go.\""
+        ],
+        [
+          "Rosa treating wounds under fire",
+          "Rosa: \"Bring her back. I'm not stitching up a widower.\""
+        ],
+        [
+          "Julia's voice in the storm",
+          "Julia: \"Whatever happens, I chose you.\""
+        ],
+        [
+          "Crane holding elevator doors as soldiers close in",
+          "Crane: \"Go, Cole. This time, I'm the one staying.\""
+        ],
+        [
+          "Rig Leviathan / flooding decks / tiles washing away / all allies at posts / waves over the grid",
+          "Dex: \"It heals and the sea eats our tiles. Fast!\""
+        ]
+      ],
+      "win": [
+        "Elevator doors open onto a pillar of light",
+        "Kane: \"Welcome home, Cole.\""
+      ],
+      "heart": "결전 전야, \"I chose you.\"",
+      "tension": "크레인의 속죄와 희생.",
+      "allies": "전원 중 3명 자유 선택",
+      "boss": "Rig Leviathan",
+      "type": "Bio-Drain Daemon",
+      "gimmick": "+4 재생 + 매 턴 타일 1개 침수 제거."
+    },
+    {
+      "n": 24,
+      "title": "Kane",
+      "loc": "HELIX core chamber",
+      "syn": "서버 대성당에서 케인과 최종 대결합니다. 케인은 2019년 대정전으로 가족을 잃고 기계의 '안정'을 믿게 됐습니다. 줄리아는 킬 스위치를 쓰면 자신도 사라질 수 있다고 고백하고, 케인이 쓰러진 뒤 HELIX가 붕괴하며 그녀의 의식이 그 안에 갇힙니다.",
+      "st": [
+        [
+          "Cathedral of servers, a pillar of light",
+          "Kane: \"I am the system now.\" / Steven: \"Then I'm the crash.\""
+        ],
+        [
+          "Julia's body unconscious in the chair",
+          "Steven: \"Julia. I'm here.\""
+        ],
+        [
+          "Flashback: Kane holding a child in a dark city",
+          "Kane: \"I lost everything to a blackout. No one will again.\""
+        ],
+        [
+          "Kane half-flesh, half-code",
+          "Kane: \"She'll die with it. Is that your mercy?\""
+        ],
+        [
+          "Julia's code-form beside Steven",
+          "Julia: \"If I turn the key, I might not wake up.\""
+        ],
+        [
+          "Steven grips her real hand",
+          "Steven: \"No. Not without me.\""
+        ],
+        [
+          "The page itself turns into a neon grid",
+          "Kane: \"Come, then. Play.\""
+        ],
+        [
+          "Kane's mind as the board / armor → regen → parity → split → countdown / Kane looming / Steven and Julia's cursors / server cathedral shaking",
+          "Julia: \"He changes every phase. Watch me.\""
+        ]
+      ],
+      "win": [
+        "Kane's code shattering like glass / HELIX begins collapsing with Julia inside",
+        "Steven: \"Julia? Julia!\""
+      ],
+      "heart": "그녀의 고백과 그의 거절, 끝까지 놓지 않는 손.",
+      "tension": "빌런의 동기, 최후의 딜레마.",
+      "allies": "Julia, Dex + 1",
+      "boss": "Victor Kane // PROMETHEUS",
+      "type": "모든 유형 순환",
+      "gimmick": "페이즈마다 장갑 → 재생 → 패리티 → 분열 → 카운트다운."
+    },
+    {
+      "n": 25,
+      "title": "Reboot",
+      "loc": "Inside HELIX → Shetland coast, dawn",
+      "syn": "피날레입니다. 스티븐은 Rig 출력을 한계까지 올려 HELIX 안으로 들어갑니다. 기억이 흩어진 줄리아는 그를 알아보지 못하고, 그는 자장가의 나머지 절반을 불러 킬 스위치를 완성합니다. HELIX가 꺼지고, 해변에서 줄리아가 눈을 뜹니다.",
+      "st": [
+        [
+          "Steven maxing the Rig, sparks flying",
+          "Dex: \"That'll fry your brain!\" / Steven: \"Then it fries.\""
+        ],
+        [
+          "Inside HELIX: a sea of light",
+          "Steven: \"Julia!\""
+        ],
+        [
+          "Julia made of fading stars",
+          "Julia: \"Who are you?\""
+        ],
+        [
+          "Steven smiling softly",
+          "Steven: \"Nobody. Just the guy who keeps finding you.\""
+        ],
+        [
+          "Steven singing; notes become light",
+          "Julia: \"I know that song...\""
+        ],
+        [
+          "Her memories return in fragments: the cave, the waltz, Venice",
+          "Julia: \"Steven.\""
+        ],
+        [
+          "Two hands reaching for one glowing key",
+          "Steven: \"Together.\""
+        ],
+        [
+          "HELIX Heart / last armor / Julia's Root Access / two hands on one key / screen goes white",
+          "Julia: \"Only we can open this. Ready?\""
+        ]
+      ],
+      "win": [
+        "Sunrise over the sea / Julia opens her eyes / a kiss — caption: 'SYSTEM STABLE.'",
+        "Julia: \"You came back for me. Again.\" / Steven: \"I told you I'd find you.\""
+      ],
+      "heart": "1화의 'Who are you?'가 뒤집혀 돌아오고, 두 사람이 맺어집니다.",
+      "tension": "회수: 1화 첫 대사, 자장가, 킬 스위치.",
+      "allies": "Julia (자동), 자유 2명",
+      "boss": "HELIX Heart",
+      "type": "Aegis Core (최종)",
+      "gimmick": "줄리아의 능력으로만 마지막 장갑이 벗겨지는 협동 보스."
+    }
+  ],
+  "cast": [
+    [
+      "Steven Cole",
+      "주인공 · 델타포스",
+      "14세에 아버지를 잃고 동생 Danny를 키운 해병 출신. 최연소 델타 팀장. 알레포 작전에서 Danny와 전우 크레인 중 한 명만 구할 수 있었고, Danny는 끝내 숨졌습니다.",
+      "죄책감을 끊고 다시 누군가를 지킬 이유를 찾는 것",
+      "Danny(6·16·20화), 크레인과의 화해(8·18화), 명령 대신 사랑(8·25화)"
+    ],
+    [
+      "Julia Reyes",
+      "암호학자 · HELIX 설계자",
+      "MIT 출신 천재. 아버지·케인과 HELIX를 만들었고, 무기화를 막으려 제네바 연구소를 폭파했습니다. 킬 스위치를 자신의 뇌파와 어머니의 자장가에 숨겼고, Rig도 그녀의 작품입니다.",
+      "자신이 만든 괴물을 끝내고 용서받는 것",
+      "제네바(7·13·15화), 자장가(8·21·25화), 구출 대상에서 동료로(1·10·19화)"
+    ],
+    [
+      "Victor Kane",
+      "메인 빌런",
+      "전 NSA 차장. 2019년 대정전으로 아내와 딸을 잃었습니다.",
+      "누구도 다시 잃지 않는 '안정된' 세계",
+      "줄리아의 스승이자 배신자, 자신의 업로드(24화)"
+    ],
+    [
+      "Col. Marcus Hale",
+      "멘토 → 배신자",
+      "스티븐을 키운 지휘관이자 Prometheus 공동 창립자. Harrow Holdings로 자금을 대고 알레포를 설계했습니다.",
+      "권력",
+      "동전(3·16화), 알레포(14·16·20화)"
+    ],
+    [
+      "Silas Crane",
+      "라이벌 · 해골 마스크",
+      "알레포에서 버려졌다고 믿는 옛 전우. 케인의 집행자.",
+      "복수 → 속죄",
+      "복수(1·8화), 진실(17화), 희생(23화)"
+    ],
+    [
+      "Eli Brooks",
+      "통신 전문가",
+      "보스턴 출신, 팀의 농담꾼.",
+      "모두를 웃게 하는 것",
+      "마지막 농담과 희생(16화)"
+    ],
+    [
+      "Mira Sato",
+      "저격수",
+      "오키나와 출신 전 자위대 저격수. 누구도 믿지 않습니다.",
+      "다시 믿는 것",
+      "나디아 불신(14화) → 후회(22화), 구출(18화)"
+    ],
+    [
+      "Dex Mercer",
+      "해커",
+      "전 정보 브로커. 겁 많지만 코드의 거짓말을 읽습니다.",
+      "도망만 치던 삶을 끝내는 것",
+      "자장가 해독(9화), 유출 추적(14화), 통신 사수(23화)"
+    ],
+    [
+      "Tank Okafor",
+      "폭파 전문가",
+      "라고스 출신 전 미 육군 공병.",
+      "명령보다 사람을 따르는 것",
+      "합류 망설임(9화), 다리를 잃는 희생(21화)"
+    ],
+    [
+      "Nadia Volkov",
+      "망명한 이중첩자",
+      "러시아 해외정보국 출신. 줄리아의 아버지를 알던 사람.",
+      "한 번이라도 진실하게 사는 것",
+      "의심(5·14화), 희생(22화)"
+    ],
+    [
+      "Rosa Medina",
+      "의무병",
+      "알레포 출신 난민 의사. 그날 스티븐의 부대를 치료했습니다.",
+      "더 이상 아무도 잃지 않는 것",
+      "알레포의 증인(6화), 해독제(12화)"
+    ]
+  ],
+  "B": [
+    [
+      1,
+      20,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      20,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      20,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      32,
+      9,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      32,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      32,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      32,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      65,
+      10,
+      6,
+      7,
+      100
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      41,
+      9,
+      5,
+      5,
+      100
+    ],
+    [
+      2,
+      41,
+      13,
+      10,
+      10,
+      100
+    ],
+    [
+      2,
+      41,
+      13,
+      10,
+      10,
+      100
+    ],
+    [
+      2,
+      41,
+      13,
+      10,
+      10,
+      100
+    ],
+    [
+      2,
+      41,
+      13,
+      10,
+      10,
+      100
+    ],
+    [
+      1,
+      124,
+      17,
+      7,
+      14,
+      99
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      40,
+      9,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      40,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      40,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      40,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      40,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      1,
+      116,
+      13,
+      7,
+      8,
+      100
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      39,
+      9,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      39,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      39,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      39,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      39,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      68,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      1,
+      39,
+      5,
+      4,
+      5,
+      96
+    ],
+    [
+      1,
+      21,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      39,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      39,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      39,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      39,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      68,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      68,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      1,
+      118,
+      16,
+      8,
+      13,
+      100
+    ],
+    [
+      1,
+      27,
+      8,
+      3,
+      4,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      48,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      48,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      1,
+      164,
+      16,
+      8,
+      14,
+      99
+    ],
+    [
+      1,
+      48,
+      9,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      48,
+      13,
+      8,
+      10,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      12,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      12,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      12,
+      14,
+      100
+    ],
+    [
+      1,
+      186,
+      15,
+      7,
+      13,
+      99
+    ],
+    [
+      1,
+      49,
+      8,
+      5,
+      5,
+      100
+    ],
+    [
+      1,
+      49,
+      8,
+      5,
+      5,
+      100
+    ],
+    [
+      1,
+      49,
+      8,
+      5,
+      5,
+      100
+    ],
+    [
+      2,
+      49,
+      13,
+      10,
+      10,
+      100
+    ],
+    [
+      2,
+      79,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      79,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      79,
+      16,
+      10,
+      14,
+      100
+    ],
+    [
+      1,
+      144,
+      13,
+      7,
+      9,
+      98
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      1,
+      48,
+      8,
+      4,
+      5,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      16,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      81,
+      16,
+      10,
+      14,
+      100
+    ],
+    [
+      1,
+      136,
+      15,
+      7,
+      13,
+      99
+    ],
+    [
+      1,
+      61,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      61,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      110,
+      10,
+      5,
+      7,
+      100
+    ],
+    [
+      2,
+      110,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      110,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      110,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      3,
+      110,
+      23,
+      15,
+      21,
+      100
+    ],
+    [
+      1,
+      331,
+      19,
+      8,
+      15,
+      97
+    ],
+    [
+      1,
+      61,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      61,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      112,
+      10,
+      5,
+      7,
+      100
+    ],
+    [
+      2,
+      112,
+      17,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      112,
+      16,
+      10,
+      14,
+      100
+    ],
+    [
+      2,
+      112,
+      16,
+      10,
+      14,
+      100
+    ],
+    [
+      3,
+      112,
+      23,
+      15,
+      21,
+      100
+    ],
+    [
+      1,
+      451,
+      22,
+      8,
+      20,
+      94
+    ],
+    [
+      1,
+      72,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      133,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      133,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      133,
+      17,
+      10,
+      14,
+      99
+    ],
+    [
+      2,
+      133,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      2,
+      133,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      3,
+      221,
+      35,
+      18,
+      33,
+      100
+    ],
+    [
+      1,
+      512,
+      23,
+      8,
+      21,
+      96
+    ],
+    [
+      1,
+      73,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      131,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      131,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      131,
+      16,
+      10,
+      14,
+      98
+    ],
+    [
+      2,
+      131,
+      16,
+      10,
+      14,
+      98
+    ],
+    [
+      2,
+      131,
+      16,
+      10,
+      14,
+      98
+    ],
+    [
+      3,
+      218,
+      32,
+      18,
+      30,
+      99
+    ],
+    [
+      1,
+      73,
+      5,
+      4,
+      6,
+      87
+    ],
+    [
+      1,
+      71,
+      9,
+      4,
+      6,
+      100
+    ],
+    [
+      1,
+      126,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      126,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      126,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      2,
+      126,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      2,
+      219,
+      18,
+      12,
+      16,
+      87
+    ],
+    [
+      3,
+      219,
+      26,
+      18,
+      24,
+      92
+    ],
+    [
+      1,
+      441,
+      22,
+      8,
+      20,
+      94
+    ],
+    [
+      1,
+      131,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      131,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      131,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      131,
+      16,
+      10,
+      14,
+      98
+    ],
+    [
+      2,
+      218,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      2,
+      218,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      3,
+      218,
+      35,
+      18,
+      33,
+      100
+    ],
+    [
+      1,
+      525,
+      21,
+      8,
+      19,
+      92
+    ],
+    [
+      1,
+      129,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      129,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      129,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      129,
+      16,
+      10,
+      14,
+      99
+    ],
+    [
+      2,
+      227,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      2,
+      227,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      3,
+      227,
+      35,
+      18,
+      33,
+      100
+    ],
+    [
+      1,
+      414,
+      19,
+      8,
+      15,
+      96
+    ],
+    [
+      1,
+      126,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      126,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      126,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      2,
+      220,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      2,
+      220,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      2,
+      220,
+      24,
+      12,
+      22,
+      100
+    ],
+    [
+      3,
+      220,
+      35,
+      18,
+      33,
+      100
+    ],
+    [
+      1,
+      496,
+      22,
+      8,
+      21,
+      93
+    ],
+    [
+      1,
+      129,
+      10,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      129,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      224,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      2,
+      224,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      224,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      224,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      3,
+      224,
+      32,
+      18,
+      30,
+      99
+    ],
+    [
+      1,
+      533,
+      21,
+      8,
+      20,
+      93
+    ],
+    [
+      1,
+      133,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      133,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      221,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      2,
+      221,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      221,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      221,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      3,
+      221,
+      31,
+      18,
+      30,
+      99
+    ],
+    [
+      1,
+      413,
+      18,
+      8,
+      15,
+      96
+    ],
+    [
+      1,
+      131,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      218,
+      12,
+      6,
+      10,
+      94
+    ],
+    [
+      1,
+      218,
+      12,
+      6,
+      10,
+      94
+    ],
+    [
+      2,
+      218,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      218,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      218,
+      21,
+      12,
+      20,
+      98
+    ],
+    [
+      3,
+      334,
+      43,
+      21,
+      42,
+      99
+    ],
+    [
+      1,
+      72,
+      5,
+      4,
+      6,
+      86
+    ],
+    [
+      1,
+      133,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      220,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      1,
+      220,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      2,
+      220,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      220,
+      22,
+      12,
+      20,
+      99
+    ],
+    [
+      2,
+      352,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      3,
+      352,
+      43,
+      21,
+      42,
+      99
+    ],
+    [
+      1,
+      75,
+      5,
+      5,
+      6,
+      85
+    ],
+    [
+      1,
+      130,
+      9,
+      5,
+      7,
+      99
+    ],
+    [
+      1,
+      208,
+      10,
+      6,
+      8,
+      93
+    ],
+    [
+      1,
+      208,
+      10,
+      6,
+      8,
+      93
+    ],
+    [
+      2,
+      208,
+      18,
+      12,
+      16,
+      91
+    ],
+    [
+      2,
+      208,
+      17,
+      12,
+      16,
+      87
+    ],
+    [
+      2,
+      354,
+      29,
+      14,
+      28,
+      98
+    ],
+    [
+      3,
+      354,
+      43,
+      21,
+      42,
+      100
+    ],
+    [
+      1,
+      437,
+      21,
+      8,
+      20,
+      91
+    ],
+    [
+      1,
+      227,
+      13,
+      6,
+      11,
+      97
+    ],
+    [
+      1,
+      227,
+      13,
+      6,
+      11,
+      97
+    ],
+    [
+      1,
+      227,
+      13,
+      6,
+      11,
+      97
+    ],
+    [
+      2,
+      227,
+      23,
+      12,
+      22,
+      99
+    ],
+    [
+      2,
+      336,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      2,
+      336,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      3,
+      336,
+      43,
+      21,
+      42,
+      100
+    ],
+    [
+      1,
+      497,
+      22,
+      8,
+      21,
+      93
+    ],
+    [
+      1,
+      216,
+      11,
+      6,
+      9,
+      91
+    ],
+    [
+      1,
+      216,
+      11,
+      6,
+      9,
+      91
+    ],
+    [
+      1,
+      216,
+      11,
+      6,
+      9,
+      91
+    ],
+    [
+      2,
+      216,
+      19,
+      12,
+      18,
+      94
+    ],
+    [
+      2,
+      334,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      2,
+      334,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      3,
+      334,
+      43,
+      21,
+      42,
+      99
+    ],
+    [
+      1,
+      548,
+      22,
+      8,
+      21,
+      95
+    ],
+    [
+      1,
+      227,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      1,
+      227,
+      12,
+      6,
+      10,
+      93
+    ],
+    [
+      1,
+      227,
+      11,
+      6,
+      10,
+      89
+    ],
+    [
+      2,
+      316,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      2,
+      316,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      2,
+      316,
+      29,
+      14,
+      28,
+      99
+    ],
+    [
+      3,
+      316,
+      43,
+      21,
+      42,
+      100
+    ],
+    [
+      1,
+      558,
+      21,
+      8,
+      20,
+      91
+    ]
+  ],
+  "bossT": [
+    "aegis",
+    "bio",
+    "mitosis",
+    "countdown",
+    "flux",
+    "bio",
+    "aegis",
+    "mitosis",
+    "flux",
+    "mitosis",
+    "aegis",
+    "bio",
+    "countdown",
+    "flux",
+    "aegis",
+    "mitosis",
+    "bio",
+    "aegis",
+    "mitosis",
+    "countdown",
+    "countdown",
+    "flux",
+    "bio",
+    "mix",
+    "aegis"
+  ],
+  "modUnlock": [
+    "",
+    "Critical Node",
+    "Overclock Shield",
+    "Laser Wipe",
+    "Echo Resonance",
+    "Purge Recycler",
+    "Corner Overclock",
+    "Fusion Reactor",
+    "Hand Refresh",
+    "Chain React",
+    "Harmonic Match",
+    "Data Buffer",
+    "Defrag Sweep",
+    "Overload Arc",
+    "Corrosive Touch",
+    "Scrappy Draw"
+  ],
+  "allyTut": {
+    "1-3": "Eli · Signal Boost",
+    "2-3": "Mira · Overwatch",
+    "3-3": "Dex · Backdoor",
+    "3-5": "Hale · Briefing",
+    "4-3": "Tank · Breach",
+    "5-3": "Nadia · Cipher Read",
+    "6-3": "Rosa · Triage",
+    "17-1": "능력 봉인 안내",
+    "18-3": "Crane · Last Stand",
+    "19-3": "Julia · Root Access"
+  },
+  "bossBoard": {
+    "aegis": "중앙 코어 십자형 5×5 (코어 = 중앙 2×2)",
+    "bio": "링형 5×5 / 6×6 (중앙 막힘)",
+    "mitosis": "와이드 6×4, 16화부터 7×5 (분열체 공간)",
+    "countdown": "컴팩트 4×4 (21화 5×5)",
+    "flux": "체커보드 5×5 / 6×6 (홀짝 칸 색 표시)",
+    "mix": "7×7 페이즈별 변형"
+  }
+}

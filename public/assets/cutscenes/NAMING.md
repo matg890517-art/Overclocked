@@ -29,6 +29,4 @@ Rosa has no portrait; the UI draws a silhouette placeholder.
 
 ## Shipped in this build
 
-200 of 225 WebP files are in this folder. These 25 ids were not in the archives that arrived and could not be matched confidently, so the in-game fallback (caption and dialogue, not a black frame) is used until the files are added:
-
-`e01-s01` `e02-s06` `e03-s04` `e03-s06` `e04-s07` `e05-s05` `e05-win` `e07-s02` `e08-s02` `e08-s06` `e09-s02` `e09-s06` `e09-win` `e10-win` `e11-s05` `e11-s06` `e12-s05` `e12-win` `e14-s06` `e14-s07` `e15-s01` `e16-s01` `e16-s06` `e17-s02` `e17-s04`
+All 225 WebP files are here, converted from the named JPEGs in `cutscenes_00`, `cutscenes_01`, and `cutscenes_02`. The filename is the cutscene id. The fallback caption is only used if a file fails to load.

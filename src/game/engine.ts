@@ -1,4 +1,4 @@
-import type { Cell, GameEvent, GameState, ModId, StageDef, Target, Tile } from "./types";
+import type { Cell, GameEvent, GameState, MixPhase, ModId, StageDef, Target, Tile } from "./types";
 import { rngNext } from "./rng";
 import { computePulse, type PulseOpts } from "./pulse";
 import type { PulseTile } from "./types";
@@ -197,7 +197,33 @@ export function livingTargets(state: GameState): Target[] {
   return state.targets.filter((t) => t.hp > 0);
 }
 
+/** Tiles that still connect, orthogonally, to a living target. */
+function networkAnchored(state: GameState): Set<string> {
+  const connected = new Set<string>();
+  const q: [number, number][] = [];
+  for (const t of livingTargets(state)) {
+    for (const [dr, dc] of DIRS) {
+      const nr = t.row + dr;
+      const nc = t.col + dc;
+      if (inside(state, nr, nc) && state.cells[nr][nc].tile) q.push([nr, nc]);
+    }
+  }
+  while (q.length) {
+    const [r, c] = q.shift()!;
+    const k = `${r},${c}`;
+    if (connected.has(k) || !state.cells[r][c].tile) continue;
+    connected.add(k);
+    for (const [dr, dc] of DIRS) {
+      const nr = r + dr;
+      const nc = c + dc;
+      if (inside(state, nr, nc) && state.cells[nr][nc].tile) q.push([nr, nc]);
+    }
+  }
+  return connected;
+}
+
 export function legalCells(state: GameState): [number, number][] {
+  const anchored = networkAnchored(state);
   const seen = new Set<string>();
   const out: [number, number][] = [];
   const consider = (r: number, c: number) => {
@@ -211,7 +237,8 @@ export function legalCells(state: GameState): [number, number][] {
   for (let r = 0; r < state.stage.rows; r++) {
     for (let c = 0; c < state.stage.cols; c++) {
       const cell = state.cells[r][c];
-      if (!cell.tile && cell.targetId == null) continue;
+      const onNetwork = Boolean(cell.tile) && anchored.has(`${r},${c}`);
+      if (!onNetwork && cell.targetId == null) continue;
       for (const [dr, dc] of DIRS) consider(r + dr, c + dc);
     }
   }
@@ -319,21 +346,27 @@ function findTarget(state: GameState, id: number): Target | undefined {
   return state.targets.find((t) => t.id === id);
 }
 
+/** Root Access opens normal armor. The final HELIX layer stays shut until Julia strips it. */
+function armorBypass(state: GameState, t: Target): boolean {
+  if (state.negate <= 0 || !armorActive(state, t)) return false;
+  if (state.stage.rootRequired && !state.rootStripped) return false;
+  return (
+    state.stage.bossType === "aegis" ||
+    (state.stage.bossType === "mix" && state.mixPhase === "aegis") ||
+    state.stage.bossType === "countdown"
+  );
+}
+
 /** How much damage the target can still absorb. Infinity means the hit cannot stick. */
 export function toughness(state: GameState, t: Target): number {
   if (t.hp <= 0) return 0;
   if (!armorActive(state, t)) return t.hp;
-  if (lastLocked(state, t) && state.negate <= 0) return Number.POSITIVE_INFINITY;
-  const bypass =
-    state.negate > 0 &&
-    (state.stage.bossType === "aegis" ||
-      state.stage.bossType === "mix" ||
-      state.stage.rootRequired ||
-      (state.stage.bossType === "countdown" && t.layers > 0));
-  if (bypass) return t.hp;
+  if (lastLocked(state, t) || (state.stage.rootRequired && !state.rootStripped && t.layers <= 1)) {
+    return Number.POSITIVE_INFINITY;
+  }
+  if (armorBypass(state, t)) return t.hp;
   if (state.stage.rootRequired && !state.rootStripped) {
-    if (t.layers <= 1) return Number.POSITIVE_INFINITY;
-    return t.armor;
+    return t.armor + Math.max(0, t.layers - 2) * t.armorMax;
   }
   return t.hp + t.armor + Math.max(0, t.layers - 1) * t.armorMax;
 }
@@ -342,14 +375,9 @@ function applyDamage(state: GameState, t: Target, amount: number): { dealt: numb
   if (amount <= 0 || t.hp <= 0) return { dealt: 0, killed: false };
   let left = amount;
   let dealt = 0;
-  const bypass =
-    state.negate > 0 &&
-    armorActive(state, t) &&
-    (state.stage.bossType === "aegis" ||
-      (state.stage.bossType === "mix" && state.mixPhase === "aegis") ||
-      state.stage.bossType === "countdown");
+  const bypass = armorBypass(state, t);
 
-  if (armorActive(state, t) && lastLocked(state, t) && !bypass && state.negate <= 0) {
+  if (armorActive(state, t) && lastLocked(state, t)) {
     return { dealt: 0, killed: false };
   }
 
@@ -442,30 +470,7 @@ function resolveDeaths(state: GameState, killingPulse: number, chain: boolean): 
 }
 
 function purgeOrphans(state: GameState): void {
-  const connected = new Set<string>();
-  const q: [number, number][] = [];
-  for (const t of state.targets) {
-    if (t.hp <= 0) continue;
-    for (const [dr, dc] of DIRS) {
-      const nr = t.row + dr;
-      const nc = t.col + dc;
-      if (!inside(state, nr, nc)) continue;
-      if (state.cells[nr][nc].tile) q.push([nr, nc]);
-    }
-  }
-  while (q.length) {
-    const [r, c] = q.shift()!;
-    const k = `${r},${c}`;
-    if (connected.has(k)) continue;
-    if (!state.cells[r][c].tile) continue;
-    connected.add(k);
-    for (const [dr, dc] of DIRS) {
-      const nr = r + dr;
-      const nc = c + dc;
-      if (!inside(state, nr, nc)) continue;
-      if (state.cells[nr][nc].tile) q.push([nr, nc]);
-    }
-  }
+  const connected = networkAnchored(state);
   const removed: Tile[] = [];
   for (let r = 0; r < state.stage.rows; r++) {
     for (let c = 0; c < state.stage.cols; c++) {
@@ -565,6 +570,7 @@ function resolveLaser(state: GameState): void {
   if (bonus > 0) {
     for (const t of [...state.targets]) applyDamage(state, t, bonus);
   }
+  purgeOrphans(state);
 }
 
 function spawnNear(state: GameState, parent: Target, hp: number): void {
@@ -613,6 +619,7 @@ function spawnNear(state: GameState, parent: Target, hp: number): void {
   state.cells[spot[0]][spot[1]].targetId = t.id;
   state.events.push({ type: "split" });
   state.events.push({ type: "banner", text: "NODE SPLIT" });
+  purgeOrphans(state);
 }
 
 function resolveMitosis(state: GameState): void {
@@ -648,6 +655,28 @@ export function weakestTile(state: GameState): { r: number; c: number } | null {
   return best ? { r: best.r, c: best.c } : null;
 }
 
+function refreshCorner(state: GameState, r: number, c: number): void {
+  if (!inside(state, r, c)) return;
+  const cell = state.cells[r][c];
+  if (cell.blocked) {
+    cell.corner = false;
+    return;
+  }
+  let openN = 0;
+  for (const [dr, dc] of DIRS) {
+    const nr = r + dr;
+    const nc = c + dc;
+    if (!inside(state, nr, nc) || state.cells[nr][nc].blocked) continue;
+    openN++;
+  }
+  cell.corner = openN <= 2;
+}
+
+function refreshCornersNear(state: GameState, r: number, c: number): void {
+  refreshCorner(state, r, c);
+  for (const [dr, dc] of DIRS) refreshCorner(state, r + dr, c + dc);
+}
+
 function floodOneCell(state: GameState): void {
   let best: { r: number; c: number; dist: number } | null = null;
   for (let r = 0; r < state.stage.rows; r++) {
@@ -661,6 +690,7 @@ function floodOneCell(state: GameState): void {
   }
   if (best) {
     state.cells[best.r][best.c].blocked = true;
+    refreshCornersNear(state, best.r, best.c);
     state.events.push({ type: "flood" });
     return;
   }
@@ -668,6 +698,7 @@ function floodOneCell(state: GameState): void {
   if (!spot) return;
   state.cells[spot.r][spot.c].tile = null;
   state.cells[spot.r][spot.c].blocked = true;
+  refreshCornersNear(state, spot.r, spot.c);
   state.events.push({ type: "flood" });
   purgeOrphans(state);
 }
@@ -693,8 +724,10 @@ function updateMix(state: GameState): void {
   const core = state.targets.find((t) => !t.branch) ?? state.targets[0];
   if (!core) return;
   const ratio = core.hp / core.maxHp;
+  const order: MixPhase[] = ["aegis", "bio", "flux", "mitosis", "countdown"];
+  const proposed = ratio > 0.8 ? "aegis" : ratio > 0.6 ? "bio" : ratio > 0.4 ? "flux" : ratio > 0.2 ? "mitosis" : "countdown";
   const prev = state.mixPhase;
-  const next = ratio > 0.8 ? "aegis" : ratio > 0.6 ? "bio" : ratio > 0.4 ? "flux" : ratio > 0.2 ? "mitosis" : "countdown";
+  const next = order[Math.max(order.indexOf(prev), order.indexOf(proposed))];
   state.mixPhase = next;
   if (prev !== next) state.events.push({ type: "banner", text: `PHASE · ${next.toUpperCase()}` });
   if (next === "countdown" && state.mixClock == null) state.mixClock = 5;
@@ -718,25 +751,22 @@ function endStep(state: GameState): void {
   state.nextMult = 1;
 
   if (state.stage.flood) floodOneCell(state);
-  if (hasMod(state, "defrag") && state.turnsUsed > 0 && state.turnsUsed % 5 === 0 && fillRatio(state) >= 0.55) {
-    const leaves: { r: number; c: number; score: number }[] = [];
+  if (hasMod(state, "defrag") && state.turnsUsed > 0 && state.turnsUsed % 5 === 0) {
+    const loose: { r: number; c: number; score: number }[] = [];
     for (let r = 0; r < state.stage.rows; r++) {
       for (let c = 0; c < state.stage.cols; c++) {
         const tile = state.cells[r][c].tile;
-        if (!tile) continue;
-        let tileN = 0;
-        for (const [dr, dc] of DIRS) {
-          const nr = r + dr;
-          const nc = c + dc;
-          if (inside(state, nr, nc) && state.cells[nr][nc].tile) tileN++;
-        }
-        if (tileN > 1) continue;
-        leaves.push({ r, c, score: tile.kind === "mult" ? 80 : tile.value });
+        if (!tile || adjacentTarget(state, r, c)) continue;
+        loose.push({ r, c, score: tile.kind === "mult" ? 80 : tile.value + (tile.crit ? 20 : 0) });
       }
     }
-    leaves.sort((a, b) => a.score - b.score);
-    for (const cell of leaves.slice(0, 2)) state.cells[cell.r][cell.c].tile = null;
-    if (leaves.length) purgeOrphans(state);
+    loose.sort((a, b) => a.score - b.score);
+    const swept = loose.slice(0, 2);
+    for (const cell of swept) state.cells[cell.r][cell.c].tile = null;
+    if (swept.length) {
+      purgeOrphans(state);
+      state.events.push({ type: "banner", text: "DEFRAG SWEEP" });
+    }
   }
   if (state.forecast > 0) state.forecast -= 1;
   refill(state);
@@ -1035,7 +1065,8 @@ export function evaluateMove(state: GameState, handIndex: number, r: number, c: 
     if (!Number.isFinite(need)) continue;
     const hit = Math.min(pulse.damage, need);
     immediate += hit;
-    if (pulse.damage >= need && need > 0) kills++;
+    const locked = state.stage.rootRequired && !state.rootStripped && t.layers > 0;
+    if (!locked && pulse.damage >= need && need > 0) kills++;
   }
   const R = Math.max(0, state.turnsLeft - (state.bufferFree > 0 ? 0 : 1));
   const avg = state.stage.pool.maxValue * 0.72;
@@ -1154,10 +1185,16 @@ function storedBoardSum(state: GameState): number {
 export function forecastLines(state: GameState): string[] {
   if (state.forecast <= 0 && !state.used.nadia) return [];
   const lines: string[] = [];
+  const flux = fluxActive(state);
   let parity = state.parity;
+  let lock = state.parityLock;
+  let negate = state.negate;
   const n = Math.max(state.forecast, state.used.nadia ? 3 : 0);
   for (let i = 0; i < Math.min(3, n); i++) {
-    lines.push(`+${i + 1}: ${parity.toUpperCase()} values land`);
+    const open = flux && (negate > 0 || lock > 0);
+    lines.push(open ? `+${i + 1}: BOTH values land` : `+${i + 1}: ${parity.toUpperCase()} values land`);
+    if (lock > 0) lock -= 1;
+    if (negate > 0) negate -= 1;
     parity = parity === "odd" ? "even" : "odd";
   }
   for (const t of state.targets) {

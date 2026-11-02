@@ -15,7 +15,7 @@
     "test": "vitest run",
     "verify": "tsx scripts/verify-stages.ts",
     "android:sync": "npm run build && cap sync android",
-    "android:debug": "npm run android:sync && cd android && ./gradlew assembleDebug",
+    "android:debug": "npm run android:sync && node scripts/android-debug.mjs",
     "android:apk": "npm run android:debug && node scripts/copy-apk.mjs"
   },
   "dependencies": {

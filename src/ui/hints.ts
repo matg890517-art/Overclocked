@@ -41,7 +41,7 @@ export function contextualHint(state: GameState, idleMs: number): Hint | null {
       );
     }
   }
-  if (state.stage.bossType === "bio" && idleMs > 6000) {
+  if ((state.stage.bossType === "bio" || (state.stage.bossType === "mix" && state.mixPhase === "bio")) && idleMs > 6000) {
     return { speaker: "Steven", color: "#ff5a7a", text: "It grows back every turn. Build the chain, then hit it harder than it heals.", key: "regen" };
   }
   if (state.stage.bossType === "countdown" || state.mixClock != null) {

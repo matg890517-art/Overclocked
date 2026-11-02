@@ -231,8 +231,13 @@ function poolOf(ep: number): StageDef["pool"] {
 function modsFor(ep: number, stage: number): ModId[] {
   if (ep >= 17) {
     const all = MOD_BY_EP.filter((m): m is ModId => !!m);
-    const a = all[(ep * 3 + stage) % all.length];
-    const b = all[(ep * 7 + stage * 3) % all.length];
+    const live = all.filter((m) => m !== "shield");
+    const pick = (n: number) => live[((n % live.length) + live.length) % live.length];
+    let a = all[(ep * 3 + stage) % all.length];
+    let b = all[(ep * 7 + stage * 3) % all.length];
+    if (a === "shield") a = pick(ep * 3 + stage);
+    if (b === "shield") b = pick(ep * 7 + stage * 3 + 1);
+    if (a === b) b = pick(all.indexOf(a) + ep + stage + 1);
     return a === b ? [a] : [a, b];
   }
   const m = MOD_BY_EP[ep - 1];

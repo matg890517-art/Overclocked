@@ -119,6 +119,7 @@ function esc(s: string): string {
 }
 
 function go(next: Route): void {
+  document.querySelectorAll(".modal").forEach((node) => node.remove());
   fx?.stop();
   fx = null;
   window.clearInterval(hintTimer);
@@ -264,7 +265,7 @@ function squad(): void {
       <p class="kicker">${esc(def.act)}</p>
       <h2 class="ep-title">STAGE ${episode}-${stage}${def.boss ? " · BOSS" : ""}</h2>
       <p class="tag" style="font-size:16px">${esc(def.episodeTitle)} · ${esc(def.location)}</p>
-      <p class="ep-loc">${def.alliesBanned ? "Black site. You go in alone. Ally abilities are sealed." : `Pick ${limits.min === limits.max ? limits.min : `${limits.min}–${limits.max}`} operators. Story locks are already on the board.`}</p>
+      <p class="ep-loc">${def.alliesBanned ? "Black site. You go in alone. Ally abilities are sealed." : `Pick ${limits.min === limits.max ? limits.min : `${limits.min}–${limits.max}`} ${limits.max === 1 ? "operator" : "operators"}. Story locks are already on the board.`}</p>
       <div class="ally-pick">
         ${avail
           .map((id) => {
@@ -651,16 +652,21 @@ function sync(): void {
   if (boss) {
     if (!g.stage.boss) boss.innerHTML = "";
     else {
-      const t = g.targets[0];
-      const hpPct = t ? Math.max(0, (t.hp / t.maxHp) * 100) : 0;
-      const arPct = t && t.armorMax ? Math.max(0, (t.armor / t.armorMax) * 100) : 0;
       const face = bossFace(g.stage.episode);
+      const bars = g.targets
+        .map((t, i) => {
+          const name = g.targets.length > 1 ? `NODE ${i + 1}` : "CORE";
+          const hpPct = Math.max(0, (t.hp / Math.max(1, t.maxHp)) * 100);
+          const arPct = t.armorMax ? Math.max(0, (t.armor / t.armorMax) * 100) : 0;
+          return `
+            ${t.layers > 0 ? `<div class="bar-label"><span>${name} ARMOR ${t.layers}×${t.armorMax}</span><span>${t.armor}</span></div><div class="bar armor"><i style="width:${arPct}%"></i></div>` : ""}
+            <div class="bar-label"><span>${name}</span><span>${t.hp}</span></div>
+            <div class="bar hp"><i style="width:${hpPct}%"></i></div>`;
+        })
+        .join("");
       boss.innerHTML = `
         <div class="bar-label boss-who"><span class="boss-name">${face ? portraitHtml(face, face, "#d7dde6") : ""}<span>${esc(g.stage.bossName)}</span></span><span>${g.mixPhase !== "none" ? g.mixPhase.toUpperCase() : g.stage.bossType.toUpperCase()}</span></div>
-        ${t && t.layers > 0 ? `<div class="bar-label"><span>ARMOR ${t.layers}×${t.armorMax}</span><span>${t.armor}</span></div><div class="bar armor"><i style="width:${arPct}%"></i></div>` : ""}
-        <div class="bar-label"><span>CORE</span><span>${t ? t.hp : 0}</span></div>
-        <div class="bar hp"><i style="width:${hpPct}%"></i></div>
-        ${g.targets.length > 1 ? `<div class="bar-label"><span>NODES ${g.targets.length}</span><span>${g.targets.map((n) => n.hp).join(" / ")}</span></div>` : ""}`;
+        ${bars}`;
     }
   }
   const board = document.getElementById("board");
@@ -699,10 +705,13 @@ function sync(): void {
       g.allies
         .map((id) => {
           const a = ALLY_MAP[id];
-          const hot = g.stage.tutorial === id && !g.used[id];
-          return `<button class="ability ${g.used[id] ? "used" : ""} ${hot ? "hot" : ""}" data-ally="${id}">
+          const late = id === "hale" && g.turnsUsed > 0 && !g.used[id];
+          const aiming = id === "tank" && aim === "breach";
+          const hot = g.stage.tutorial === id && !g.used[id] && !late;
+          const label = g.used[id] ? "SPENT" : late ? "TOO LATE" : aiming ? "CANCEL" : "READY";
+          return `<button class="ability ${g.used[id] || late ? "used" : ""} ${hot ? "hot" : ""}" data-ally="${id}">
             ${portraitHtml(id, a.name, a.color)}
-            <b>${esc(a.ability)}</b><small>${g.used[id] ? "SPENT" : "READY"}</small>
+            <b>${esc(a.ability)}</b><small>${label}</small>
           </button>`;
         })
         .join("") || `<p class="ep-loc">No allies on comms.</p>`;
@@ -749,8 +758,18 @@ function sync(): void {
   bindPortraits(document.getElementById("shake-root") ?? app);
   const prompt = document.getElementById("prompt");
   if (prompt) {
-    const flux = g.stage.bossType === "flux" || g.mixPhase === "flux";
-    prompt.textContent = aim === "breach" ? "TAP A TILE — BREACH" : aim === "scrub" ? "TAP A TILE — MANUAL SCRUB" : flux ? `PARITY ${g.parity.toUpperCase()}` : "";
+    if (aim === "breach" || aim === "scrub") {
+      const verb = aim === "breach" ? "TAP A TILE — BREACH" : "TAP A TILE — MANUAL SCRUB";
+      prompt.innerHTML = `<button class="btn tiny" id="cancel-aim">${verb} · CANCEL</button>`;
+      prompt.querySelector("#cancel-aim")?.addEventListener("click", () => {
+        aim = "play";
+        touch();
+        sync();
+      });
+    } else {
+      const flux = g.stage.bossType === "flux" || g.mixPhase === "flux";
+      prompt.textContent = flux ? `PARITY ${g.parity.toUpperCase()}` : "";
+    }
   }
   drawHint();
 }
@@ -776,23 +795,29 @@ function onCell(r: number, c: number): void {
   }
   if (handPick < 0) return;
   if (!isLegal(game, r, c)) return;
-  const tile = game.hand[handPick];
-  placeTile(game, handPick, r, c);
+  const ok = placeTile(game, handPick, r, c);
+  if (!ok) return;
   handPick = -1;
   sfx("place");
   buzz(10);
-  if (tile) afterAct();
+  afterAct();
 }
 
 function onAlly(id: string): void {
   if (!game || game.used[id]) return;
   touch();
+  if (id === "hale" && game.turnsUsed > 0) {
+    game.events = [{ type: "banner", text: "BRIEFING CLOSED" }];
+    afterAct();
+    return;
+  }
   if (id === "tank") {
-    aim = "breach";
+    aim = aim === "breach" ? "play" : "breach";
     handPick = -1;
     sync();
     return;
   }
+  aim = "play";
   if (!useAbility(game, id)) return;
   sfx("ui");
   buzz(15);

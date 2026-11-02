@@ -11,3 +11,4 @@ const result = spawnSync(command, ["assembleDebug"], {
   shell: win,
 });
 process.exit(result.status ?? 1);
+
